@@ -8,13 +8,21 @@ import { PostsPageRoutingModule } from './posts-routing.module';
 
 import { PostsPage } from './posts.page';
 
+import { HttpClientModule } from '@angular/common/http';
+
+import { SharedModule } from '../shared/shared.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PostsPageRoutingModule
+    PostsPageRoutingModule,
+    HttpClientModule,
+    SharedModule
   ],
-  declarations: [PostsPage]
+  declarations: [
+    PostsPage
+  ]
 })
 export class PostsPageModule {}

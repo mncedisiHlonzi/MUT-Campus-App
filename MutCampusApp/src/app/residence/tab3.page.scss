@@ -1,22 +1,29 @@
 ion-header {
   ion-toolbar {
-      --ion-toolbar-background: #ffffff;
-      color: #000;
-      font-weight: bold;
-      box-shadow: none;
+    --ion-toolbar-background: #fff;
+    color: #000;
+    font-weight: bold;
+    box-shadow: none;
   }
 }
 
 ion-content {
   --ion-background-color: #ffffff;
 }
-
+.scrollable-content {
+  overflow: auto;
+}
 #list-card{
   --background: #fff;
   --color: #7a7a7a;
+  box-shadow: none !important;
 }
+
 #list{
   background-color: #ffff;
+}
+.rating{
+  padding-bottom: 10px;
 }
 ion-item{
   --background: #fff;
@@ -45,6 +52,7 @@ ion-item{
 
 .custom-card {
   --background: url('../../assets/images/mut4.jpg') center/cover;
+  box-shadow: none !important;
 }
 #card-button {
   margin-left: 10px;
@@ -68,6 +76,9 @@ ion-item{
   --color: #fff;
   text-transform: none;
 }
+.dep_head{
+  color: indigo;
+}
 
 /*.block {
   width: 100%;
@@ -80,3 +91,72 @@ ion-item{
 ion-modal {
   --height: auto;
 }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.list-header{
+  background-color: indigo;
+  color: #fff;
+}
+ion-list {
+  ion-list-header {
+    ion-label {
+      font-size: 0.9rem;
+    }
+  }
+  ion-item {
+    ion-label {
+      font-weight: bold;
+      div {
+        margin-top: 8px;
+        ion-text {
+          font-size: 0.9rem;
+        }
+      }
+      p {
+        margin-top: 5px;
+        ion-text {
+          font-size: 0.75rem;
+          span {
+            font-weight: normal;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+ion-modal {
+  ion-row {
+    ion-col {
+      ion-label {
+        letter-spacing: 0.5px;
+        font-size: 0.9rem;
+      }   
+      ion-textarea {
+          --background: var(--ion-color-light);
+          --border-radius: 5px;
+      }
+    }
+    ion-col.rate {
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+  }
+  }
+}

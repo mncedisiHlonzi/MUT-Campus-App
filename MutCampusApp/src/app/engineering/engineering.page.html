@@ -1,0 +1,242 @@
+<ion-header style="--background: indigo;" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Faculty of Engineering</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-card id="grid_card">
+      <ion-grid>
+        <ion-row>
+          <ion-col routerLink="/engineering" class="Engineering">
+            Faculty of Engineering
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  </ion-card>
+
+
+  <!--<ion-card id="list-card">
+      <ion-list lines="none" id="list">
+        <ion-item>
+          <ion-label>
+            <h1>Faculty of Engineering</h1>
+            <p>With a rich history of academic excellence, our faculty is home to five distinguished departments: Chemical Engineering, Civil Engineering and Survey, Electrical Engineering, Mechanical Engineering, and Building and Construction. Each department is committed to fostering a stimulating learning environment that nurtures innovation, creativity, and critical thinking.</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+  </ion-card>-->
+
+  <ion-card id="list-card">
+    <ion-card-header>
+      <ion-card-title>Engineering Departments <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+
+      <ion-list lines="none" id="list">
+        <ion-item > 
+          <ion-label>Chemical Engineering</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Civil Engineering & Survey</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Electrical Engineering</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Mechanical Engineering</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Building & Construction</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card id="list-card">
+    <ion-card-header>
+      <ion-card-title>Engineering Courses <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+
+      <ion-list lines="none" id="list">
+        <ion-item > 
+          <ion-label>Diploma in Civil Engineering</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Diploma in Surveying</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Diploma in Chemical Engineering</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>National Diploma: Engineering: Chemical</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Advanced Diploma in Chemical Engineering</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Diploma in Electrical Engineering</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Diploma in Mechanical Engineering (MEENDI)</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Diploma in Mechanical Engineering - ECP (MEENEC)</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Advanced Diploma in Mechanical Engineering (ADMECHEN)</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Access Course: Mechanical Engineering</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Diploma in Electrical Engineering: (ECP)</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Pre-Technician Programme</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Bridging Course: Chemical Engineering</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Diploma in Civil Engineering: (ECP)</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+        <ion-item > 
+          <ion-label>Diploma in Surveying: (ECP)</ion-label>
+          <ion-button slot="end" shape="round">
+            <ion-icon name="arrow-forward-circle-sharp" slot="end"></ion-icon>
+            View
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card id="list-card">
+    <ion-card-header>
+      <ion-card-title>Contact Details <ion-icon class="dep_head" name="call-sharp"></ion-icon></ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+
+      <ion-list lines="none" id="list">
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Faculty Dean</h3>
+            <p>Prof F Bakare</p>
+          </ion-label>
+          <ion-label>
+            <h3>Tel No</h3>
+            <p>+27 31 907 7224</p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Senior Secretary</h3>
+            <p>Ms ND Khumalo</p>
+          </ion-label>
+          <ion-label>
+            <h3>Tel No</h3>
+            <p>+27 31 907 7236</p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Faculty Officer</h3>
+            <p>Ms SP Mthembu</p>
+          </ion-label>
+          <ion-label>
+            <h3>Tel No</h3>
+            <p>+27 31 907 7172</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>

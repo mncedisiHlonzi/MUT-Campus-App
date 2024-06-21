@@ -163,9 +163,12 @@ ion-searchbar{
     width: 90%;
     margin: auto;
     font-size: 16px;
-    color: #a5a5a5;
+    color: #7a7a7a;
     text-align: center;
     font-weight: 500;
+  }
+  .dep_head{
+    color: indigo;
   }
   
   
@@ -247,7 +250,7 @@ ion-searchbar{
     --color: #7a7a7a;
     --detail-icon-color: #7a7a7a;
     --inner-box-shadow: none;
-    font-size: 17px;
+    font-size: 16px;
   }
   .icons{
     color: indigo;

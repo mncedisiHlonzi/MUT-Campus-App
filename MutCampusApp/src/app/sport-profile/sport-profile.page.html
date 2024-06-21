@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sport Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card id="list-card">
+    <ion-card-content>
+      <div class="profile-image">
+        <img [src]="'http://192.168.101.153:3000/' + adminProfile.profile_picture"> <!-- Display profile picture -->
+      </div>
+      <div class="details">
+        <h2>{{ adminProfile.name }}</h2> <!-- Display admin name -->
+        <p>{{ adminProfile.position }}</p> <!-- Display admin position -->
+      </div>
+      <ion-button id="trigger-button" class="button">
+        <ion-icon style="font-weight: bold;" slot="start" name="pencil-sharp"></ion-icon>
+        Edit
+      </ion-button>
+      <ion-popover trigger="trigger-button">
+        <ng-template>
+          <ion-content class="ion-padding">
+            <form (submit)="updateProfile($event)">
+              <ion-item lines="none">
+                <ion-input [(ngModel)]="adminProfile.name" name="name" label="User name"></ion-input> <!-- Bind admin name -->
+              </ion-item>
+              <ion-item lines="none">
+                <ion-select [(ngModel)]="adminProfile.position" name="position" aria-label="Position" interface="popover" placeholder="Position"> <!-- Bind admin position -->
+                  <ion-select-option value="Sport Chairperson">Sport Chairperson</ion-select-option>
+                  <ion-select-option value="Sport Secretary">Sport Secretary</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-item lines="none" class="change-img">
+                <label for="file-upload">
+                  <ion-icon name="images-sharp"></ion-icon>
+                </label>
+                <input type="file" id="file-upload" name="profile_picture" style="display: none;">
+              </ion-item>
+              <ion-button class="form-button" expand="full" type="submit">Update</ion-button>
+            </form>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

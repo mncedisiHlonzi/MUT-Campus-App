@@ -1,0 +1,29 @@
+ion-header {
+    ion-toolbar {
+      --ion-toolbar-background: #fff;
+      color: #000;
+      font-weight: bold;
+      box-shadow: none;
+    }
+  }
+  
+  ion-content {
+    --ion-background-color: #ffffff;
+  }
+
+  .list{
+    background-color: #fff;
+    color: #333333;
+  }
+  ion-item{
+    --background: #fff;
+    --color: #333333;
+  }
+  span{
+    color: #333333;
+    font-weight: bold;
+  }
+  ion-textarea{
+    --placeholder-color: #333333;
+    --placeholder-opacity: 1;
+  }

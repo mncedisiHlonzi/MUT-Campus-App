@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button default-href="#"></ion-back-button>
     </ion-buttons>
-    <ion-title>Transport</ion-title>
+    <ion-title>Student Transport</ion-title>
     <ion-buttons slot="end">
       <ion-button> <ion-icon name="car-sport-sharp"></ion-icon> </ion-button>
     </ion-buttons>
@@ -11,9 +11,97 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">transport</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card id="card">
+    <img src="../../assets/images/transport.png" />
+    <ion-card-header>
+      <ion-card-title>Bus Timetable <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
+    </ion-card-header>
+
+    <ion-grid [fixed]="true">
+      <h6 style="text-align: center; font-weight: bold; color: #000;">Monday To Friday</h6>
+      <ion-row>
+        <ion-col class="head">Buses</ion-col>
+        <ion-col class="head">From Res</ion-col>
+        <ion-col class="head">To Res</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>1</ion-col>
+        <ion-col>07H00</ion-col>
+        <ion-col>10H00</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>2</ion-col>
+        <ion-col>08H00</ion-col>
+        <ion-col>12H00</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>3</ion-col>
+        <ion-col>09H00</ion-col>
+        <ion-col>14H00</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>4</ion-col>
+        <ion-col>10H30</ion-col>
+        <ion-col>17H00</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>5</ion-col>
+        <ion-col>12H30</ion-col>
+        <ion-col>19H00</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>6</ion-col>
+        <ion-col>15H00</ion-col>
+        <ion-col>21H00</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>7</ion-col>
+        <ion-col>None</ion-col>
+        <ion-col>23H00</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>1</ion-col>
+        <ion-col>07H00</ion-col>
+        <ion-col>10H00</ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid [fixed]="true">
+      <h6 style="text-align: center; font-weight: bold; color: #000;">Saturday</h6>
+      <ion-row>
+        <ion-col class="head">Buses</ion-col>
+        <ion-col class="head">From Res</ion-col>
+        <ion-col class="head">To Res</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>1</ion-col>
+        <ion-col>08H00</ion-col>
+        <ion-col>13H00</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>2</ion-col>
+        <ion-col>10H30</ion-col>
+        <ion-col>16H00</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>3</ion-col>
+        <ion-col>None</ion-col>
+        <ion-col>21H00</ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid [fixed]="true">
+      <h6 style="text-align: center; font-weight: bold; color: #000;">Sunday</h6>
+      <ion-row>
+        <ion-col class="head">Buses</ion-col>
+        <ion-col class="head">From Res</ion-col>
+        <ion-col class="head">To Res</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>1</ion-col>
+        <ion-col>08H00</ion-col>
+        <ion-col>18H00</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>

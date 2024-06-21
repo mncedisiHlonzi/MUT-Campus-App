@@ -1,12 +1,11 @@
 ion-header {
-    ion-toolbar {
-        --ion-toolbar-background: #ffffff;
-        --border-color: #ffffff;
-        --border-style: none;
-        --color: #000;
-        box-shadow: none;
-    }
+  ion-toolbar {
+    --ion-toolbar-background: #fff;
+    color: #000;
+    font-weight: bold;
+    box-shadow: none;
   }
+}
 ion-content {
     --ion-background-color: #ffffff;
   }

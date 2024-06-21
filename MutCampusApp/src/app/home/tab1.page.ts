@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonPopover } from '@ionic/angular';
+import { StatusBar, Style } from '@capacitor/status-bar';
 
 @Component({
   selector: 'app-tab1',
@@ -10,12 +10,12 @@ export class Tab1Page {
 
   constructor() {}
 
-  @ViewChild('popover') popover;
-
-  isOpen = false;
-
-  presentPopover(e: Event) {
-    this.popover.event = e;
-    this.isOpen = true;
+  ngOnInit() {
+    this.setStatusBarColor();
   }
+
+  async setStatusBarColor() {
+    await StatusBar.setBackgroundColor({ color: '#ffffff' });
+  }
+
 }

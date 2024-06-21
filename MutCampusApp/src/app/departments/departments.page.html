@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header style="--background: indigo;" [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button default-href="#"></ion-back-button>
@@ -11,9 +11,139 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">departments</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title style="color: transparent;">MUT Departments</ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="color: transparent;">
+      Discover the diverse departments within our Engineering, Management Science, and Natural Science faculties at MUT.
+    </ion-card-content>
+    <ion-button id="card-button" shape="round">
+      Departments Information
+      <ion-icon slot="end" name="checkmark-done-sharp"></ion-icon>
+    </ion-button>
+  </ion-card>
+
+  <ion-card id="list-card">
+    <ion-card-header>
+      <ion-card-title>Engineering <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+
+      <ion-list lines="none" id="list">
+        <ion-item class="custom-detail-icon" detail="true" routerLink="/chemical-engineering">
+          <ion-label>
+            <h3>Department of Chemical Engineering</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Civil Engineering and Survey</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Electrical Engineering</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Mechanical Engineering</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Building and Construction</h3>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card id="list-card">
+    <ion-card-header>
+      <ion-card-title>Management Science <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+
+      <ion-list lines="none" id="list">
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Accounting and Law</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Human Resource Management</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Marketing</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Office Management and Technology</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Public Administration and Economics</h3>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card id="list-card">
+    <ion-card-header>
+      <ion-card-title>Natural Science <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+
+      <ion-list lines="none" id="list">
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Agriculture</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Biomedical Sciences</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Chemistry</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Community Extension</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Environmental Health</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Information and Communication Technology</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item class="custom-detail-icon" detail="true">
+          <ion-label>
+            <h3>Department of Nature Conservation</h3>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

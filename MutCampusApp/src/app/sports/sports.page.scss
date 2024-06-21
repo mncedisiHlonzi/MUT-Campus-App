@@ -1,12 +1,51 @@
 ion-header {
-    ion-toolbar {
-        --ion-toolbar-background: #ffffff;
-        color: #000;
-        font-weight: bold;
-        box-shadow: none;
-    }
+  ion-toolbar {
+    --ion-toolbar-background: #fff;
+    color: #000;
+    font-weight: bold;
+    box-shadow: none;
   }
+}
   
   ion-content {
     --ion-background-color: #ffffff;
+  }
+
+  #card{
+    --background: #fff;
+    --color: #7a7a7a;
+    box-shadow: none !important;
+  }
+  ion-fab-button::part(native) {
+    background-color: indigo;
+    color: #fff;
+  }
+
+  ion-col {
+    background-color: #f3f3f3;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 100px;
+    border-radius: 10px;
+    color: gray;
+    text-align: center;
+  }
+
+  .icon{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+  }
+  .ico{
+    margin-top: 15px;
+    font-size: 40px;
+    color: indigo;
+  }
+  .Title{
+    width: 90%;
+    margin: auto;
+    font-size: 16px;
+    color: #7a7a7a;
+    text-align: center;
+    font-weight: 500;
   }

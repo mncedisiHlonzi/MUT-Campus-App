@@ -5,15 +5,49 @@
     </ion-buttons>
     <ion-title>Sports</ion-title>
     <ion-buttons slot="end">
-      <ion-button> <ion-icon name="tennisball-sharp"></ion-icon> </ion-button>
+      <ion-button> <ion-icon name="flag-outline"></ion-icon> </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">sports</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card id="card">
+    <img src="../../assets/images/sports.jpg" />
+      <ion-grid>
+        <ion-row>
+          <ion-col routerLink="/posts">
+            <ion-icon class="ico" name="football-outline"></ion-icon>
+            <div class="Title">Football</div>
+          </ion-col>
+          <ion-col routerLink="/timetable">
+            <ion-icon class="ico" name="tennisball-outline"></ion-icon>
+            <div class="Title">Tennis</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col routerLink="/sports">
+            <ion-icon class="ico" name="baseball-outline"></ion-icon>
+            <div class="Title">Baseball</div>
+          </ion-col>
+          <ion-col routerLink="/transport">
+            <ion-icon class="ico" name="basketball-outline"></ion-icon>
+            <div class="Title">Basketball</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col routerLink="/sports">
+            <ion-icon class="ico" name="barbell-outline"></ion-icon>
+            <div class="Title">Body Building</div>
+          </ion-col>
+          <ion-col routerLink="/transport">
+            <ion-icon class="ico" name="golf-outline"></ion-icon>
+            <div class="Title">Golf</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  </ion-card>
 </ion-content>

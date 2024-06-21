@@ -1,0 +1,44 @@
+<ion-header class="ion-no-border" style="--background: indigo;" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="body_top" style="margin-top: 7px;"></div>
+  <div class="container">
+    <div class="wrapper">
+      <section class="post">
+        <form (ngSubmit)="onSubmit()">
+          <div class="content">
+            <img src="../../assets/images/profil.png" alt="logo">
+            <div class="details">
+              <p class="create">Make Announcement<br><span>SRC Office</span></p>
+            </div>
+          </div>
+          <textarea [(ngModel)]="announcementText" name="announcementText" placeholder="What's on your mind ?" spellcheck="false" required></textarea>
+          <div class="options">
+            <p>Add to Your Post</p>
+            <ul class="list">
+              <li>
+                <label for="file-upload">
+                  <img src="../../assets/images/gallery.svg" alt="gallery">
+                </label>
+                <input type="file" id="file-upload" (change)="onFileSelected($event)" style="display: none;">
+              </li>
+            </ul>
+          </div>
+          <ion-select [(ngModel)]="targetAudience" name="targetAudience" aria-label="Faculties" interface="popover" placeholder="Select target audience">
+            <ion-select-option value="all_student">All Students</ion-select-option>
+            <ion-select-option value="engineering">Engineering</ion-select-option>
+            <ion-select-option value="management_science">Management Science</ion-select-option>
+            <ion-select-option value="natural_science">Natural Science</ion-select-option>
+          </ion-select>
+          <ion-button expand="full" type="submit">Post</ion-button>
+        </form>
+      </section>
+    </div>
+  </div>
+</ion-content>

@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header style="--background: indigo;" [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button default-href="#"></ion-back-button>
@@ -11,9 +11,47 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">faculties</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title style="color: transparent;">MUT Faculties</ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="color: transparent;">
+      Explore our diverse faculties including Engineering, Management Science, and Natural Science.
+    </ion-card-content>
+    <ion-button id="card-button" shape="round">
+      Faculties Information
+      <ion-icon slot="end" name="checkmark-done-sharp"></ion-icon>
+    </ion-button>
+  </ion-card>
+
+
+  <ion-card id="grid_card">
+    <ion-card-title>Explore Faculties <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
+  
+    
+      <ion-grid>
+        <ion-row>
+          <ion-col routerLink="/engineering" class="Engineering">
+            Faculty of Engineering
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col routerLink="/management" class="Management">
+            Faculty of Management Sciences
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col routerLink="/natural" class="Natural">
+            Faculty of Natural Sciences
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    
+  </ion-card>
+  
 </ion-content>

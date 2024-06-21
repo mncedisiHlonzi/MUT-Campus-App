@@ -1,12 +1,97 @@
 ion-header {
-    ion-toolbar {
-        --ion-toolbar-background: #ffffff;
-        color: #000;
-        font-weight: bold;
-        box-shadow: none;
-    }
+  ion-toolbar {
+    --ion-toolbar-background: #fff;
+    color: #000;
+    font-weight: bold;
+    box-shadow: none;
   }
+}
   
   ion-content {
     --ion-background-color: #ffffff;
+  }
+
+  .custom-card {
+    --background: url('../../assets/images/faculties.jpg') center/cover;
+  }
+  #card-button {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    --background: indigo;
+    --color: #fff;
+    text-transform: none;
+  }
+  #modal-bottom{
+    --background: #fff;
+    box-shadow: none !important;
+  }
+  .pictures-button{
+    --background: indigo;
+    --color: #fff;
+    text-transform: none;
+  }
+  .like-button{
+    font-size: 20px;
+    --background: indigo;
+    --color: #fff;
+    text-transform: none;
+  }
+
+
+  ion-card{
+    --background: indigo;
+    --color: #fff;
+    box-shadow: none !important;
+  }
+  #top-button{
+    --background: indigo;
+    --color: #fff;
+  }
+  #grid_card{
+    height: 400px;
+    overflow: hidden;
+    --background: #fff;
+    box-shadow: none !important;
+    border-radius: 10px;
+  }
+  #grid_card ion-card-content {
+    height: 90%;
+  }
+  #grid_card ion-card-title{
+    --color: #7a7a7a;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 7px;
+    margin-top: 7px;
+  }
+  ion-col {
+    margin-left: 3px;
+    margin-right: 3px;
+    height: 100px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }  
+  .Engineering {
+    background-image: url('../../assets/images/Engineering.webp');
+    background-size: cover;
+    background-position: center;
+  }
+  .Management {
+    background-image: url('../../assets/images/Msc.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .Natural {
+    background-image: url('../../assets/images/Nc.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .dep_head{
+    color: indigo;
   }

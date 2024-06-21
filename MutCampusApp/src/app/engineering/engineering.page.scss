@@ -1,0 +1,97 @@
+ion-header {
+    ion-toolbar {
+      --ion-toolbar-background: indigo;
+      color: #fff;
+      font-weight: bold;
+      box-shadow: none;
+    }
+  }
+
+  ion-content {
+    --ion-background-color: #ffffff;
+  }
+
+  ion-card{
+    --background: indigo;
+    --color: #fff;
+    box-shadow: none !important;
+  }
+  #top-button{
+    --background: indigo;
+    --color: #fff;
+  }
+  #grid_card{
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: none !important;
+    border-radius: 10px;
+  }
+  #grid_card ion-card-content {
+    height: 90%;
+  }
+  #grid_card ion-card-title{
+    --color: #7a7a7a;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  ion-col {
+    margin-left: 3px;
+    margin-right: 3px;
+    height: 100px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }  
+  .Engineering {
+    background-image: url('../../assets/images/Engineering.webp');
+    background-size: cover;
+    background-position: center;
+  }
+
+
+  #list-card{
+    --background: #fff;
+    --color: #7a7a7a;
+  }
+  #list{
+    background-color: #ffff;
+  }
+  ion-item{
+    --background: #fff;
+    --color: #7a7a7a;
+    --detail-icon-color: #7a7a7a;
+    --inner-box-shadow: none;
+    font-size: 17px;
+  }
+  .icons{
+    color: indigo;
+    font-size: 35px;
+  }
+  #list-card ion-card-title{
+    --color: #7a7a7a;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  #list ion-button{
+    --background: indigo;
+    --color: #fff;
+    text-transform: none;
+  }
+  .dep_head{
+    color: indigo;
+  }
+  .custom-detail-icon {
+    --detail-icon-color: indigo;
+    --detail-icon-font-weight: bold;
+  }
+  
+  .custom-detail-icon .item-detail-icon {
+    color: var(--detail-icon-color);
+    font-weight: var(--detail-icon-font-weight);
+  }

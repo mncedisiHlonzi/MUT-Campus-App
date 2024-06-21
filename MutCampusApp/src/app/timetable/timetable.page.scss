@@ -1,12 +1,22 @@
 ion-header {
-    ion-toolbar {
-        --ion-toolbar-background: #ffffff;
-        color: #000;
-        font-weight: bold;
-        box-shadow: none;
-    }
+  ion-toolbar {
+    --ion-toolbar-background: #fff;
+    color: #000;
+    font-weight: bold;
+    box-shadow: none;
   }
+}
   
   ion-content {
     --ion-background-color: #ffffff;
+  }
+
+  #card{
+    --background: #fff;
+    --color: #7a7a7a;
+    box-shadow: none !important;
+  }
+  ion-fab-button::part(native) {
+    background-color: indigo;
+    color: #fff;
   }

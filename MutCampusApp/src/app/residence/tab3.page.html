@@ -1,9 +1,6 @@
-<ion-header [translucent]="true">
+<ion-header style="--background: indigo;" [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button default-href="#"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Residence</ion-title>
+    <ion-title>Student Residences</ion-title>
     <ion-buttons slot="end">
       <ion-button> <ion-icon name="podium-sharp"></ion-icon> </ion-button>
     </ion-buttons>
@@ -14,7 +11,7 @@
 
   <ion-card class="custom-card">
     <ion-card-header>
-      <ion-card-title>Students Residences</ion-card-title>
+      <ion-card-title style="color: #ccc;">Student Residences</ion-card-title>
     </ion-card-header>
     <ion-card-content>
     </ion-card-content>
@@ -28,7 +25,7 @@
 
   <ion-card id="list-card">
     <ion-card-header>
-      <ion-card-title>Isiphingo Residences <ion-icon name="pulse-sharp"></ion-icon></ion-card-title>
+      <ion-card-title>Isiphingo Residences <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
@@ -36,7 +33,7 @@
       <ion-list lines="none" id="list">
         <ion-item > 
           <ion-avatar aria-hidden="true" slot="start">
-            <img alt="" src="../../assets/images/mut2.jpg" />
+            <img alt="" src="../../assets/images/ap1.jpeg" />
           </ion-avatar>
           <ion-label>Rads Lodge</ion-label>
           <ion-button slot="end" shape="round" id="rads">
@@ -46,7 +43,7 @@
         </ion-item>
         <ion-item >
           <ion-avatar aria-hidden="true" slot="start">
-            <img alt="" src="../../assets/images/mut2.jpg" />
+            <img alt="" src="../../assets/images/ap2.jpg" />
           </ion-avatar>
           <ion-label>Unicity Res</ion-label>
           <ion-button slot="end" shape="round">
@@ -56,7 +53,7 @@
         </ion-item>
         <ion-item >
           <ion-avatar aria-hidden="true" slot="start">
-            <img alt="" src="../../assets/images/mut2.jpg" />
+            <img alt="" src="../../assets/images/ap3.jpg" />
           </ion-avatar>
           <ion-label>Pingo Keys</ion-label>
           <ion-button slot="end" shape="round">
@@ -66,7 +63,7 @@
         </ion-item>
         <ion-item >
           <ion-avatar aria-hidden="true" slot="start">
-            <img alt="" src="../../assets/images/mut2.jpg" />
+            <img alt="" src="../../assets/images/ap4.jpg" />
           </ion-avatar>
           <ion-label>Villa Mzimba</ion-label>
           <ion-button slot="end" shape="round">
@@ -85,7 +82,7 @@
 
   <ion-card id="list-card">
     <ion-card-header>
-      <ion-card-title>Montclair Residences <ion-icon name="pulse-sharp"></ion-icon></ion-card-title>
+      <ion-card-title>Montclair Residences <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
@@ -93,7 +90,7 @@
       <ion-list lines="none" id="list">
         <ion-item > 
           <ion-avatar aria-hidden="true" slot="start">
-            <img alt="" src="../../assets/images/mut2.jpg" />
+            <img alt="" src="../../assets/images/ap5.jpg" />
           </ion-avatar>
           <ion-label>Ubombo House</ion-label>
           <ion-button slot="end" shape="round">
@@ -103,7 +100,7 @@
         </ion-item>
         <ion-item >
           <ion-avatar aria-hidden="true" slot="start">
-            <img alt="" src="../../assets/images/mut2.jpg" />
+            <img alt="" src="../../assets/images/ap6.jpg" />
           </ion-avatar>
           <ion-label>Shiv Mansions</ion-label>
           <ion-button slot="end" shape="round">
@@ -113,7 +110,7 @@
         </ion-item>
         <ion-item >
           <ion-avatar aria-hidden="true" slot="start">
-            <img alt="" src="../../assets/images/mut2.jpg" />
+            <img alt="" src="../../assets/images/ap7.jpg" />
           </ion-avatar>
           <ion-label>Pilglen Mews</ion-label>
           <ion-button slot="end" shape="round">
@@ -153,7 +150,7 @@
 
   <ion-card id="list-card">
     <ion-card-header>
-      <ion-card-title>Town Residences <ion-icon name="pulse-sharp"></ion-icon></ion-card-title>
+      <ion-card-title>Town Residences <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
@@ -339,7 +336,7 @@
 
   <ion-card id="list-card">
     <ion-card-header>
-      <ion-card-title>BBA Residences <ion-icon name="pulse-sharp"></ion-icon></ion-card-title>
+      <ion-card-title>BBA Residences <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
@@ -476,70 +473,151 @@
 
 
 
-
-
-
-
   <ion-modal
-    trigger="rads"
-    [initialBreakpoint]="0.25"
-    [breakpoints]="[0, 0.25, 0.5, 0.64]"
-    handleBehavior="cycle"
-  >
-    <ng-template>
-      <ion-header>
-      </ion-header>
-      <ion-content class="ion-padding">
+  trigger="rads"
+  [initialBreakpoint]="0.25"
+  [breakpoints]="[0, 0.25, 0.5, 0.75, 0.97]"
+  handleBehavior="cycle"
+  style="--border-radius: 17px;"
+>
+  <ng-template>
+    <ion-header>
+    </ion-header>
+    
+    <ion-content class="ion-padding scrollable-content">
+      <ion-card class="custom-card">
+        <ion-card-header>
+          <ion-card-title style="color: #ccc;">Rads Lodge</ion-card-title>
+        </ion-card-header>
+        <ion-card-content></ion-card-content>
+        <ion-button id="card-button" shape="round" routerLink="/rads-lodge-res">
+          Explore
+          <ion-icon slot="end" name="arrow-redo-sharp"></ion-icon>
+        </ion-button>
+      </ion-card>
 
-        <ion-card class="custom-card">
-          <ion-card-header>
-            <ion-card-title>Rads Lodge</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-          </ion-card-content>
-          <ion-button id="card-button" shape="round" routerLink="/rads-lodge-res">
-            Explore
-            <ion-icon slot="end" name="arrow-redo-sharp"></ion-icon>
-          </ion-button>
-        </ion-card>
+      <ion-card style="border: 1px solid gray;" id="list-card">
+        <ion-card-header>
+          <ion-card-title style="color: #ccc;">Rads Residence <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
+          <ion-card-subtitle>Details</ion-card-subtitle>
+        </ion-card-header>
 
-        <ion-card id="list-card">
-          <ion-card-header>
-            <ion-card-title>Rads Residence <ion-icon name="pulse-sharp"></ion-icon></ion-card-title>
-            <ion-card-subtitle>Details</ion-card-subtitle>
-          </ion-card-header>
-        
-          <ion-card-content>      
-            <ion-list lines="none" id="list">
-              <ion-item > 
-                <ion-icon aria-hidden="true" name="location-sharp" slot="start" class="icons"></ion-icon>
-                <ion-label>23 Marigold Avenue, Isipingo Hills</ion-label>
-              </ion-item>
-              <ion-item > 
-                <ion-icon aria-hidden="true" name="bed-sharp" slot="start" class="icons"></ion-icon>
-                <ion-label>1, 2, 3 & 4 Sleeper Rooms</ion-label>
-              </ion-item>
-              <ion-item > 
-                <ion-icon aria-hidden="true" name="wifi-sharp" slot="start" class="icons"></ion-icon>
-                <ion-label>24/7 Wi-Fi</ion-label>
-              </ion-item>
-              <ion-item > 
-                <ion-icon aria-hidden="true" name="shield-half-sharp" slot="start" class="icons"></ion-icon>
-                <ion-label>24hrs Security</ion-label>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
+        <ion-list lines="none" id="list">
+          <ion-item>
+            <ion-icon aria-hidden="true" name="location-sharp" slot="start" class="icons"></ion-icon>
+            <ion-label>23 Marigold Avenue, Isipingo Hills</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon aria-hidden="true" name="bed-sharp" slot="start" class="icons"></ion-icon>
+            <ion-label>1, 2, 3 & 4 Sleeper Rooms</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon aria-hidden="true" name="wifi-sharp" slot="start" class="icons"></ion-icon>
+            <ion-label>24/7 Wi-Fi</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon aria-hidden="true" name="shield-half-sharp" slot="start" class="icons"></ion-icon>
+            <ion-label>24hrs Security</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card>
 
-        <ion-card id="modal-bottom">
-          <ion-button routerLink="/rads-lodge-res" shape="round" class="pictures-button">Pictures</ion-button>
-          <ion-button shape="round" class="like-button">
-            <ion-icon name="heart-sharp"></ion-icon>
-          </ion-button>
-        </ion-card>
-        
-      </ion-content>
-    </ng-template>
-  </ion-modal>
+
+      <ion-card class="rating" id="list-card">
+        <ion-card-header>
+          <ion-card-title style="color: #000;">Ratings and Reviews <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
+          <ion-card-subtitle>Ratings and reviews about residences are from Mut students only!</ion-card-subtitle>
+      
+        </ion-card-header>
+        <ion-label id="open-modal" style="color: blue; margin-top: 7px;">Rate & Add review</ion-label>
+
+        <ion-list *ngIf="reviews.length > 0">
+          <ion-list-header class="list-header" mode="md">
+            <ion-label class="ion-text-center">
+              {{reviews.length}} REVIEWS
+            </ion-label>
+          </ion-list-header>
+
+          <ion-item *ngFor="let review of reviews">
+            <ion-label>
+              <app-star-rating 
+                [initialRating]="review?.rate" 
+                [readonly]="true" 
+                [alignment]="'left'"
+                [size]="'0.9rem'">
+              </app-star-rating>
+
+              <div *ngIf="review?.comment">
+                <ion-text class="ion-text-wrap">{{review?.comment}}</ion-text>
+              </div>
+
+              <p>
+                <ion-text>
+                  {{review?.user_name}}
+                  <span>
+                    {{review?.created_at | dateAgo}}
+                  </span>
+                </ion-text>
+              </p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+
+      <ion-modal 
+        #rate_modal
+        trigger="open-modal" 
+        [initialBreakpoint]="0.75" 
+        [breakpoints]="[0, 0.25, 0.5, 0.75, 0.9, 1]"
+        style="--border-radius: 17px;"
+        (willDismiss)="onWillDismiss($event)">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-button (click)="dismiss()"><ion-icon name="chevron-down-sharp"></ion-icon></ion-button>
+              </ion-buttons>
+              <ion-title style="text-align: center;">REVIEW</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="dismiss(true)" [strong]="true"><ion-icon name="send-sharp"></ion-icon></ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+
+          <ion-content class="ion-padding">
+            <ion-row>
+              <ion-col size="12" class="ion-text-center">
+                <ion-label color="dark" class="ion-text-wrap">
+                  Please provide your valuable feedback?
+                </ion-label>
+              </ion-col>
+
+              <ion-col size="12" class="rate">
+                <app-star-rating (ratingChange)="rating.rate = $event"></app-star-rating>
+              </ion-col>
+
+              <ion-col size="12">
+                <ion-textarea
+                  label="" 
+                  rows="2" 
+                  placeholder="Any Comments (optional)" 
+                  [(ngModel)]="rating.comment">
+                </ion-textarea>
+              </ion-col>
+            </ion-row>
+
+            <ion-toast
+              [isOpen]="isToastOpen"
+              [message]="errorMessage"
+              [duration]="3000"
+              color="danger"
+              (didDismiss)="setOpen(false)">
+            </ion-toast>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+    </ion-content>
+  </ng-template>
+</ion-modal>
 
 </ion-content>

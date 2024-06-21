@@ -1,0 +1,164 @@
+ion-header {
+    ion-toolbar {
+      --ion-toolbar-background: #ffffff;
+  }
+    .top-bar{
+      height: 8%;
+      width: 95%;
+      margin: auto;
+      padding-top: 5px;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+  }
+  
+  .top-bar .profile{
+      height: 100%;
+      width: 300px;
+      display: flex;
+  }
+  
+  .top-bar .bell-icon{
+      height: 100%;
+      width: 30px;
+  }
+  
+  .top-bar .bell-icon i{
+      font-size: 25px;
+      color: indigo;
+      justify-content: center;
+      text-align: center;
+      margin-top: 13px;
+      font-weight: bold;
+      cursor: pointer;
+  }
+  
+  .top-bar .drawer{
+    height: 100%;
+    width: 30px;
+  }
+  
+  .top-bar .drawer i{
+    font-size: 25px;
+    color: indigo;
+    justify-content: center;
+    text-align: center;
+    margin-top: 13px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .top-bar .profile-frm{
+      height: 100%;
+      width: 46px;
+      margin-left: 5px;
+      background: white;
+  }
+  
+  .top-bar .profile-frm .profile-image{
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      margin-top: 3px;
+  }
+  
+  .top-bar .profile-frm .profile-image img {
+      width: 100%; /* Make the image fill the container */
+      height: 100%; /* Make the image fill the container */
+      object-fit: cover; /* Maintain aspect ratio and cover the container */
+      border-radius: 50%; /* Create a circular image (adjust as needed) */
+  }
+  
+  .top-bar .profile-name{
+      height: 100%;
+      width: 170px;
+      margin-left: 5px;
+      background: white;
+  }
+  
+  .top-bar .profile-name .p-name{
+      font-size: 10px;
+      font-weight: bold;
+      color: gray;
+      margin-top: 10px;
+  }
+  
+  .top-bar .profile-name .role{
+    font-size: 13px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 5px;
+  }
+  
+  .top-bar .expand{
+      height: 100%;
+      width: 30px;
+  }
+  
+  .top-bar .expand i{
+      font-size: 25px;
+      justify-content: center;
+      text-align: center;
+      margin-top: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      color: indigo;
+  }
+
+    }
+  
+    ion-content {
+        --ion-background-color: #ffffff;
+      }
+
+      #grid_card{
+        height: 300px;
+        overflow: hidden;
+        --background: #fff;
+        box-shadow: none !important;
+        border-radius: 10px;
+      }
+      #grid_card ion-card-content {
+        height: 90%;
+      }
+      #grid_card ion-card-title{
+        --color: #000;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      ion-col {
+        background-color: #fff;
+        margin-left: 3px;
+        margin-right: 3px;
+        height: 110px;
+        border-radius: 10px;
+        color: #fff;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.11);
+    }
+    .icon{
+        width: 80%;
+        margin: auto;
+        text-align: center;
+      }
+      .ionicons{
+        margin-top: 10px;
+        font-size: 35px;
+        color: indigo;
+      }
+      .Title{
+        width: 90%;
+        margin: auto;
+        font-size: 16px;
+        color: #7a7a7a;
+        text-align: center;
+        font-weight: 500;
+      }
+      .dep_head{
+        color: indigo;
+      }
+      ion-fab-button {
+        --background: indigo;
+        --border-radius: 50%;
+        --color: white;
+      }

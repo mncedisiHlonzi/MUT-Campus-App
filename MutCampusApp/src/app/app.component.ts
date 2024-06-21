@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { register } from 'swiper/element/bundle';
+import { StatusBar, Style } from '@capacitor/status-bar';
 register();
 @Component({
   selector: 'app-root',
@@ -7,5 +8,27 @@ register();
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor() {
+    this.initializeApp();
+  }
+
+  initializeApp() {
+    this.setStatusBar();
+  }
+
+  setStatusBar() {
+    StatusBar.setBackgroundColor({ color: '#fff' });
+    StatusBar.setStyle({ style: Style.Light });
+    StatusBar.setOverlaysWebView({
+      overlay: false,
+    });
+  }
+
+  ngOnInit() {
+    this.setStatusBarColor();
+  }
+
+  async setStatusBarColor() {
+    await StatusBar.setBackgroundColor({ color: '#ffffff' });
+  }
 }

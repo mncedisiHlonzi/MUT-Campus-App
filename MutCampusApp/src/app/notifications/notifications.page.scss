@@ -1,12 +1,71 @@
 ion-header {
-    ion-toolbar {
-        --ion-toolbar-background: #ffffff;
-        color: #000;
-        font-weight: bold;
-        box-shadow: none;
-    }
+  ion-toolbar {
+    --ion-toolbar-background: #fff;
+    color: #000;
+    font-weight: bold;
+    box-shadow: none;
   }
+}
   
   ion-content {
     --ion-background-color: #ffffff;
+  }
+
+  #list-card{
+    --background: #fff;
+    --color: #7a7a7a;
+    box-shadow: none !important;
+  }
+  #list{
+    background-color: #ffff;
+  }
+  ion-item{
+    --background: #f7f7f7;
+    --color: #7a7a7a;
+    --detail-icon-color: #7a7a7a;
+    --inner-box-shadow: none;
+    font-size: 17px;
+    border-bottom: 1px solid gray;
+  }
+  .read{
+    --background: #fff;
+    border-bottom: none;
+  }
+
+  .dep_head{
+    color: indigo;
+  }
+  .icons{
+    color: indigo;
+    font-size: 35px;
+  }
+  #list-card ion-card-title{
+    --color: #7a7a7a;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  #list ion-button{
+    --background: indigo;
+    --color: #fff;
+    text-transform: none;
+  }
+
+  ion-item .notifications-icon{
+    color: indigo;
+    width: 55px;
+    height: 55px;
+    font-size: 50px;
+    border-radius: 7px;
+  }
+  .post-details{
+    margin-left: 5px;
+  }
+  .post-details h3{
+    font-weight: bold;
+    color: #000;
+  }
+
+  .post-details p{
+    margin-top: 6px;
   }
