@@ -1,10 +1,21 @@
-<div [align]="alignment">
-  <ion-icon
-    *ngFor="let star of stars; let i = index"
-    [style.marginRight.px]="5" 
-    [style.fontSize]="size"
-    [name]="star.icon" 
-    [color]="star.color"
-    (click)="rate(i + 1)">
-  </ion-icon>
-</div>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Submit Review</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="submitReview()">Submit</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Your Name</ion-label>
+    <ion-input [(ngModel)]="rating.user_name"></ion-input> <!-- Binding to the rating.user_name property -->
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Comment</ion-label>
+    <ion-textarea [(ngModel)]="rating.comment"></ion-textarea>
+  </ion-item>
+  <app-star-rating [(ngModel)]="rating.rate"></app-star-rating>
+  
+</ion-content>

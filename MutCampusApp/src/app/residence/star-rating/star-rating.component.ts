@@ -1,15 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-star-rating',
   templateUrl: './star-rating.component.html',
   styleUrls: ['./star-rating.component.scss'],
-  standalone: true,
-  imports: [IonicModule, CommonModule]
+  standalone: true, // This makes it a standalone component
+  imports: [IonicModule, CommonModule, FormsModule]
 })
 export class StarRatingComponent  implements OnInit {
+  rating = { user_name: '', rate: 0, comment: '' }; // Define the rating object
   
   stars: { icon: string; color: string }[] = [
     { icon: 'star-outline', color: 'medium' },
@@ -18,6 +21,7 @@ export class StarRatingComponent  implements OnInit {
     { icon: 'star-outline', color: 'medium' },
     { icon: 'star-outline', color: 'medium' },
   ];
+
 
   @Input() initialRating: number = 0;
   @Input() readonly: boolean = false;
@@ -52,5 +56,10 @@ export class StarRatingComponent  implements OnInit {
     }
     this.ratingChange.emit(rating);
   }
+
+  submitReview() {
+    console.log("Review submitted!");
+  }
+
 
 }
