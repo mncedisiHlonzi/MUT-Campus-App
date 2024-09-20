@@ -6,3 +6,4 @@ describe('DateAgoPipe', () => {
     expect(pipe).toBeTruthy();
   });
 });
+
