@@ -65,7 +65,14 @@ ion-header {
     font-weight: bold;
     color: #000;
   }
-
+  .post-from{
+    font-weight: bold;
+  }
   .post-details p{
     margin-top: 6px;
+  }
+  .no-notifications p {
+    font-size: 18px;
+    color: #666;
+    text-align: center;
   }

@@ -6,6 +6,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { ProfilePageRoutingModule } from './profile-routing.module';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { ProfilePage } from './profile.page';
 
 @NgModule({
@@ -13,7 +15,8 @@ import { ProfilePage } from './profile.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ProfilePageRoutingModule
+    ProfilePageRoutingModule,
+    HttpClientModule
   ],
   declarations: [ProfilePage]
 })

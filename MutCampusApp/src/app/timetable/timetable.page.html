@@ -1,13 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button default-href="#"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Time Table</ion-title>
-    <ion-buttons slot="end">
-      <ion-button> <ion-icon name="calendar-clear-sharp"></ion-icon> </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
+  
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -17,9 +9,65 @@
       <ion-card-title style="text-align: center; color: #ccc;">No Timetable Available</ion-card-title>
     </ion-card-header>
   </ion-card>
-  <ion-fab class="add" slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button>
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>1-2<br>07:45 - 09:10</th>
+          <th>3-4<br>09:15 - 10:40</th>
+          <th>5-6<br>10:00 - 12:30</th>
+          <th>7-8<br>12:30 - 14:10</th>
+          <th>9-10<br>14:30 - 15:55</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monday</td>
+          <td>IS3<br>ONLINE (D1)</td>
+          <td>DS3<br>ONLINE (D1)</td>
+          <td>ADS3<br>ONLINE (D1)</td>
+          <td>IP2<br>ONLINE (D1)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td></td>
+          <td>IS3<br>D1</td>
+          <td></td>
+          <td></td>
+          <td>IE<br>ONLINE (D1)</td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td></td>
+          <td></td>
+          <td>DS3<br>D1</td>
+          <td>IP2<br>D1</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td>IP2<br>D1</td>
+          <td>DS3<br>D1</td>
+          <td></td>
+          <td>ADS3<br>D1</td>
+          <td>IE<br>OLT</td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td>IS3<br>D1</td>
+          <td>DS3<br>D1</td>
+          <td>ADS3<br>D1</td>
+          <td></td>
+          <td>IE<br>OLT</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ion-button [routerLink]="['/custom-table']">Custorm table +</ion-button>
+
+
 </ion-content>

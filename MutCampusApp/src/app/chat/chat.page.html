@@ -1,0 +1,48 @@
+<ion-header class="ion-no-border" style="--background: indigo;" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title routerLink="/chat">Mncedisi Hlonzi</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="chatbubbles-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list class="scrollable-content" lines="none">
+    <ion-item class="comment-item">
+      <ion-avatar aria-hidden="true" slot="start">
+        <img src="../../assets/images/tyc.jpg" alt="Profile Picture">
+      </ion-avatar>
+      <ion-label>
+        <p>Mncedisi</p>
+        <h6>Lorem ipsum dolor sit amet. Hic sunt repudiandae et officia dolore sed minima fugit vel rerum voluptas! Ea dolorem totam ut nemo possimus qui vitae odit est corrupti doloremque hic corrupti minus. Qui voluptatem impedit ut distinctio dolorem aut aspernatur labore. Sed alias nemo ut quidem cupiditate qui quod amet. Est aspernatur odit qui quis dolorem ea assumenda voluptates est repellat repudiandae. Vel dolores deleniti non illum dignissimos et velit quis quo omnis inventore aut nihil ullam. Sit esse eligendi est voluptatibus sunt At quos voluptatem. 33 eaque ullam sed deleniti corrupti ut accusantium error At dignissimos ullam et impedit quaerat qui praesentium odio et reprehenderit dolorem. Non ducimus eligendi est consequatur velit ut quos explicabo hic assumenda cupiditate ut saepe accusantium qui consequuntur provident.</h6>
+        <p><span>13:45</span></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="scrollable-content" lines="none">
+    <ion-item class="comment-item">
+      <ion-avatar aria-hidden="true" slot="end">
+        <img src="../../assets/images/tyc.jpg" alt="Profile Picture">
+      </ion-avatar>
+      <ion-label style="background-color: indigo;">
+        <!--<p>Mncedisi</p>-->
+        <h6 style="margin-top: 7px; color: #fff;">Lorem ipsum dolor sit amet. Hic sunt repudiandae et officia dolore sed minima fugit vel rerum voluptas! Ea dolorem totam ut nemo possimus qui vitae odit est corrupti doloremque hic corrupti minus. Qui voluptatem impedit ut distinctio dolorem aut aspernatur labore. Sed alias nemo ut quidem cupiditate qui quod amet. Est aspernatur odit qui quis dolorem ea assumenda voluptates est repellat repudiandae. Vel dolores deleniti non illum dignissimos et velit quis quo omnis inventore aut nihil ullam. Sit esse eligendi est voluptatibus sunt At quos voluptatem. 33 eaque ullam sed deleniti corrupti ut accusantium error At dignissimos ullam et impedit quaerat qui praesentium odio et reprehenderit dolorem. Non ducimus eligendi est consequatur velit ut quos explicabo hic assumenda cupiditate ut saepe accusantium qui consequuntur provident.</h6>
+        <p><span>13:45</span></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-card>
+    <form id="comment-form">
+      <ion-textarea placeholder="Send Message" spellcheck="false" required auto-grow="true"></ion-textarea>
+      <ion-button fill="clear" type="submit"><ion-icon name="send-sharp"></ion-icon></ion-button>
+    </form>
+  </ion-card>
+</ion-content>

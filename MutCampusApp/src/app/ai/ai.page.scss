@@ -6,6 +6,89 @@ ion-header {
     box-shadow: none;
   }
 }
-ion-content {
+  
+  ion-content {
     --ion-background-color: #ffffff;
   }
+
+/* Main chat container */
+.chat-content {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #ffffff;
+  overflow-y: scroll;
+}
+
+/* Wrapper for messages */
+.message-wrapper {
+  display: flex;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+/* Bubble styling */
+.chat-bubble {
+  max-width: 75%;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 15px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+/* User message (right aligned) */
+.user-message {
+  justify-content: flex-end;
+}
+
+.user-message .chat-bubble {
+  background-color: indigo;
+  color: white;
+  border-bottom-right-radius: 0;
+}
+
+/* AI message (left aligned) */
+.bot-message {
+  justify-content: flex-start;
+}
+
+.bot-message .chat-bubble {
+  background-color: #eaeaea;
+  color: black;
+  border-bottom-left-radius: 0;
+}
+
+/* Input area styling */
+ion-toolbar {
+  --background: #f9f9f9;
+  padding: 5px 10px;
+  border-top: 1px solid #dcdcdc;
+}
+
+ion-item {
+  display: flex;
+  align-items: center;
+  --background: #f0f0f0;
+  border-radius: 25px;
+}
+
+ion-input{
+  background: #f0f0f0;
+  color: #000;
+}
+
+.message-input {
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.send-button {
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.send-button ion-icon {
+  font-size: 22px;
+  color: #000;
+}

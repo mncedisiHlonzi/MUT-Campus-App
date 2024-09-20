@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PostService {
-  private apiUrl = 'http://localhost:3000'; // Adjust if your API URL is different
+  private apiUrl = 'http://172.16.21.22:3000'; // Adjust if your API URL is different
 
   constructor(private http: HttpClient) {}
 

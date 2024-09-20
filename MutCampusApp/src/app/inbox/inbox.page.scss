@@ -1,0 +1,74 @@
+ion-header {
+  ion-toolbar {
+    --ion-toolbar-background: #fff;
+    color: #000;
+    font-weight: bold;
+    box-shadow: none;
+  }
+}
+  
+ion-content {
+  --ion-background-color: #fff;
+}
+
+ion-list {
+background: #fff;
+}
+
+ion-list ion-item {
+--background: #fff;
+}
+
+.unread-indicator {
+background: indigo;
+width: 10px;
+height: 10px;
+border-radius: 100%;
+position: absolute;
+inset-inline-start: 12px;
+top: 12px;
+}
+
+.metadata-end-wrapper {
+position: absolute;
+top: 10px;
+inset-inline-end: 10px;
+font-size: 0.8rem;
+display: flex;
+align-items: center;
+}
+
+ion-label {
+  display: block;
+  max-width: 100%;
+}
+
+ion-label strong {
+  display: block;
+  color: #000;
+  max-width: calc(100% - 60px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Ensure text stays on one line */
+}
+
+.subject {
+margin-bottom: 10px;
+}
+
+ion-text {
+color: gray;
+font-weight: bold;
+font-size: small;
+}
+
+ion-label ion-note {
+  margin-top: 3px;
+  font-size: 0.8rem;
+  max-width: calc(100% - 60px); /* Adjust the width to ensure it fits */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis for long text */
+  white-space: nowrap; /* Ensure text stays on one line */
+  display: block;
+  color: #666; /* Gray color for message */
+}

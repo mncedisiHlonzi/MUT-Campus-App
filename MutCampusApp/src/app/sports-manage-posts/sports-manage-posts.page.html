@@ -1,13 +1,12 @@
-<!-- posts.page.html -->
 <ion-header class="ion-no-border" style="--background: indigo;" [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button default-href="#"></ion-back-button>
     </ion-buttons>
-    <ion-title>Your Posts</ion-title>
+    <ion-title>Sports Posts</ion-title>
     <ion-buttons slot="end">
       <ion-button>
-        <ion-icon name="newspaper-sharp"></ion-icon>
+        <ion-icon name="bookmarks-sharp"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -24,6 +23,10 @@
           <div class="name">{{ post.office }}</div>
           <div class="time">{{ post.created_at | dateAgo }} <span>•</span> <ion-icon name="trending-down-sharp"></ion-icon></div>
         </div>
+        <div class="options">
+          <!-- Use a unique id for each popover button -->
+          <ion-icon [id]="'popover-button-' + post.postId" style="color: black; margin-top: 10px; font-size: 20px;" name="ellipsis-vertical-sharp"></ion-icon>
+        </div>
       </div>
 
       <div class="text">
@@ -35,15 +38,32 @@
       </div>
 
       <div class="post_footer">
-        <ion-button class="like_button" shape="round" size="default" (click)="likePost(post.postId)">
-          <ion-icon style="font-weight: bold;" slot="start" name="heart-outline"></ion-icon>
+        <!--<ion-button class="like_button" shape="round" size="default" (click)="likePost(post.postId)">
+          <ion-icon 
+            [name]="post.hasLiked ? 'heart' : 'heart-outline'" 
+            [style.color]="post.hasLiked ? 'indigo' : 'default'" 
+            style="font-weight: bold;" 
+            slot="start">
+          </ion-icon>
           {{ post.likes > 0 ? post.likes : '' }}
-        </ion-button>
-        <ion-button id="open-comments-{{ post.postId }}" class="comment_button" shape="round" size="default" (click)="openComments(post.postId)">
+        </ion-button>-->
+
+        <ion-button class="comment_button" shape="round" size="default" (click)="openComments(post.postId)">
           <ion-icon style="font-weight: bold;" slot="start" name="chatbubble-outline"></ion-icon>
           {{ post.comment_count > 0 ? post.comment_count : '' }}
         </ion-button>
       </div>
+
+      <!-- Popover for each post -->
+      <ion-popover [trigger]="'popover-button-' + post.postId" [dismissOnSelect]="true">
+        <ng-template>
+          <ion-content>
+            <ion-list>
+              <ion-item [button]="true" (click)="deletePost(post.postId)">Delete Post</ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
     </div>
 
     <ion-modal id="comments-modal" [trigger]="'open-comments-' + selectedPostId" [initialBreakpoint]="0.80" [breakpoints]="[0.80]" handleBehavior="cycle" style="--border-radius: 17px;">
@@ -59,10 +79,10 @@
           <ion-list class="scrollable-content" lines="none">
             <ion-item *ngFor="let comment of comments" class="comment-item">
               <ion-avatar aria-hidden="true" slot="start">
-                <img alt="" src="../../assets/images/tyc.jpg" />
+                <img [src]="comment.profile_picture ? 'http://172.16.21.22:3000/' + comment.profile_picture : '../../assets/images/user-default.png'" alt="Profile Picture">
               </ion-avatar>
               <ion-label>
-                <p>Mncedisi</p>
+                <p>{{ comment.name }} {{ comment.surname }}</p>
                 <h6>{{ comment.comment }}</h6>
                 <p><span>{{ comment.created_at | dateAgo }}</span></p>
               </ion-label>
@@ -72,7 +92,10 @@
       </ng-template>
     </ion-modal>
   </div>
-  <ng-template #noPosts>
-    <p>No posts available</p>
+  <ng-template class="no-posts-template" #noPosts>
+    <div class="no-posts-container">
+      <img src="../../assets/images/timetable.jpg" alt="No Notifications">
+      <p>No posts available</p>
+    </div>
   </ng-template>
 </ion-content>

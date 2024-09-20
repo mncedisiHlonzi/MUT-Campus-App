@@ -1,48 +1,39 @@
 <ion-header style="--background: #fff;" class="ion-no-border" [translucent]="true">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <!--<ion-toolbar>
-    <ion-buttons slot="secondary">
-    </ion-buttons>
-    <ion-buttons slot="primary">
-      <ion-button>
-        <ion-icon name="notifications-outline"></ion-icon>
-      </ion-button>
-      <ion-button>
-        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>MUT</ion-title>
-  </ion-toolbar>-->
   <ion-toolbar>
     <div class="top-bar">
-      <div class="profile">
+      <div class="profile" (click)="onProfileClick()">
         <div class="profile-frm">
             <div class="profile-image">
-                <img src="../../assets/images/tyc.jpg">
+              <img [src]="student?.profile_picture ? 'http://172.16.21.22:3000/' + student.profile_picture : '../../assets/images/user-default.png'" alt="Profile Picture">
             </div>
         </div>
         <div class="profile-name">
             <div class="p-name">Hello</div>
-            <div class="role">Mncedisi Hlonzi</div>
+            <div class="role">{{ student?.name }} {{ student?.surname }}</div> <!-- Binding the student name -->
         </div>
+      </div>
+      <div class="bell-icon" (click)="onBellClick()">
+        <ion-badge *ngIf="unreadCount > 0" style="border-radius: 10px; z-index: 9999; position: fixed; margin-left: -8px; margin-top: 5px;" color="danger">{{ unreadCount }}</ion-badge> 
+        <i class='bx bx-bell'></i>
+      </div>      
+      <ion-button id="top-button" shape="round" routerLink="/ai">
+        <ion-icon name="analytics-sharp"></ion-icon>
+      </ion-button>
     </div>
-    <div class="bell-icon" routerLink="/notifications">
-      <ion-badge style="border-radius: 10px; z-index: 9999; position: fixed; margin-left: -8px; margin-top: 5px;" color="danger" routerLink="/notifications">25</ion-badge>
-      <i class='bx bx-bell'></i>
-    </div>
-  <ion-button id="top-button" shape="round" routerLink="/ai">
-    <ion-icon name="analytics-sharp"></ion-icon>
-  </ion-button>
-  </div>
 
-  <ion-searchbar></ion-searchbar>
-  </ion-toolbar>
-
-  
-
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar> 
 </ion-header>
 
+
+
+
 <ion-content [fullscreen]="true">
+
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   
   <swiper-container slides-per-view="3" speed="500" pagination="true" loop="true" css-mode="true">
 
@@ -71,7 +62,7 @@
       Share your thoughts, raise issues, and collaborate for a better school experience.
     </ion-card-content>
   
-    <ion-button id="card-button" shape="round" routerLink="/voice-my-concern">
+    <ion-button id="card-button" shape="round" (click)="onVoiceMyConcernClick()">
       Raise a Concern
       <ion-icon slot="end" name="megaphone-sharp"></ion-icon>
     </ion-button>
@@ -83,7 +74,7 @@
       <ion-icon name="chevron-up-outline"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">
-      <ion-fab-button routerLink="/profile">
+      <ion-fab-button (click)="onProfileClick()">
         <ion-icon name="person-sharp"></ion-icon>
       </ion-fab-button>
       <ion-fab-button routerLink="/settingss">

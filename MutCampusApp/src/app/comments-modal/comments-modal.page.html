@@ -1,0 +1,24 @@
+<ion-header class="ion-no-border custom-header" [translucent]="true">
+  <ion-label class="custom-label">{{ comments.length }}<span> Comments</span></ion-label>
+</ion-header>
+
+<div class="form-container">
+  <form id="comment-form" (ngSubmit)="sendComment()">
+    <ion-textarea [(ngModel)]="newComment" name="newComment" placeholder="Add your comment in post!" spellcheck="false" required auto-grow="true"></ion-textarea>
+    <ion-button fill="clear" type="submit"><ion-icon name="send-sharp"></ion-icon></ion-button>
+  </form>
+</div>
+<ion-content class="ion-padding">
+  <ion-list class="scrollable-content" lines="none">
+    <ion-item *ngFor="let comment of comments" class="comment-item">
+      <ion-avatar aria-hidden="true" slot="start">
+        <img [src]="comment.profile_picture ? 'http://172.16.21.22:3000/' + comment.profile_picture : '../../assets/images/user-default.png'" alt="Profile Picture">
+      </ion-avatar>
+      <ion-label>
+        <p>{{ comment.name }} {{ comment.surname }}</p>
+        <h6>{{ comment.comment }}</h6>
+        <p><span>{{ comment.created_at | dateAgo }}</span></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

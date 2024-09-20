@@ -17,7 +17,7 @@ export class SportAdminPage implements OnInit {
   }
 
   getAdminProfile(adminId: number) {
-    this.http.get(`http://192.168.101.153:3000/admin-profile/${adminId}`).subscribe(
+    this.http.get(`http://172.16.21.22:3000/admin-profile/${adminId}`).subscribe(
       (response: any) => {
         this.adminProfile = response;
       },
@@ -25,6 +25,14 @@ export class SportAdminPage implements OnInit {
         console.error('Error fetching admin profile:', error);
       }
     );
+  }
+
+  handleRefresh(event) {
+    setTimeout(() => {
+      // Any calls to load data go here
+      this.getAdminProfile(3);
+      event.target.complete();
+    }, 2000);
   }
 
 }

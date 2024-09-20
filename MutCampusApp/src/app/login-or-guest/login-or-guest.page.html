@@ -6,14 +6,14 @@
     <h1>Explore MUT Campus App</h1>
     <p>Ready to unlock the full potential of your campus experience? Login or check in as guest now to access exclusive features and stay connected with the MUT community.</p>
   </div>
-  <ion-button class="button" id="login-opt" expand="block" size="large" routerLink="/login">Login</ion-button>
-  <ion-button class="button" expand="block" size="large" routerLink="/tabs">Access As Guest</ion-button>
+  <ion-button class="button" shape="round" id="login-opt" expand="block" routerLink="/login">Login</ion-button>
+  <ion-button class="button" shape="round" expand="block" (click)="guestLogin()">Access As Guest</ion-button>
 
-
+  <!-- Modal for Login -->
   <ion-modal
     trigger="login-opt"
-    [initialBreakpoint]="0.99"
-    [breakpoints]="[0.99]"
+    [initialBreakpoint]="0.50"
+    [breakpoints]="[0.50]"
     handleBehavior="cycle"
     style="--border-radius: 17px;"
   >
@@ -22,94 +22,53 @@
       </ion-header>
       <ion-content class="ion-padding">
 
-        <ion-card id="list-card">
+        <ion-card id="list-card" *ngIf="isStudentFormVisible">
           <ion-card-header>
-            <ion-card-title style="color: gray;">Hello, Sign In As ?</ion-card-title>
-            <ion-card-subtitle>Choose in the options below !</ion-card-subtitle>
+            <ion-card-title style="color: gray;">Sign In.</ion-card-title>
+            <ion-card-subtitle>Please enter your credentials !</ion-card-subtitle>
           </ion-card-header>
         
-                
-            <ion-list lines="none" id="list">
-
-              <ion-item id="open-custom-dialog">
-                <ion-icon aria-hidden="true" slot="end" class="icons" name="log-in-outline"></ion-icon> 
-                <ion-label>Student</ion-label>
-                  <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
-                    <ng-template>
-                      <div class="wrapper">
-                        <ion-list style="background: #fff; margin-top: 15px;" lines="none">
-                          <ion-item>
-                            <ion-input label="Email" type="email" placeholder="22513145@live.mut.ac.za"></ion-input>
-                          </ion-item>
-                          <ion-item>
-                            <ion-input label="Password" type="password" placeholder="@Mut6164085"></ion-input>
-                          </ion-item>
-                          <ion-button class="button" id="login-opt" expand="block" size="large">Sign In</ion-button>
-                        </ion-list>
-                      </div>
-                    </ng-template>
-                  </ion-modal>
+          <ion-list lines="none" id="list">
+            <form (ngSubmit)="login()">
+              <ion-item>
+                <ion-input label="Email" type="email" [(ngModel)]="email" name="email" placeholder="22113111@live.mut.ac.za" required></ion-input>
               </ion-item>
-
-              <ion-item id="src"> 
-                <ion-icon aria-hidden="true" slot="end" class="icons" name="log-in-outline"></ion-icon>
-                <ion-label>SRC Office</ion-label>
-                <ion-modal id="example-modal" #modal trigger="src">
-                  <ng-template>
-                    <div class="wrapper">
-                      <ion-list style="background: #fff; margin-top: 15px;" lines="none">
-                        <ion-item>
-                          <ion-input label="Enter Password" type="password"></ion-input>
-                        </ion-item>
-                        <ion-button routerLink="/src-admin" class="button" id="login-opt" expand="block" size="large">Sign In</ion-button>
-                      </ion-list>
-                    </div>
-                  </ng-template>
-                </ion-modal>
+              <ion-item>
+                <ion-input label="Password" type="password" [(ngModel)]="password" name="password" required></ion-input>
               </ion-item>
+              <ion-button shape="round" expand="full" type="submit">Login</ion-button>
+            </form>
+            <ion-button fill="outline" style="--background: transparent; color: gray; font-weight: bold; --border-color: indigo; width: 25%; text-align: center; align-items: center; justify-content: center; display: flex;"  id="login-admin" size="small" (click)="toggleForm()">
+              Admin
+              <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+            </ion-button>
+          </ion-list>
+        </ion-card>
 
-              <ion-item id="transport"> 
-                <ion-icon aria-hidden="true" slot="end" class="icons" name="log-in-outline"></ion-icon>
-                <ion-label>Transport Office</ion-label>
-                <ion-modal id="example-modal" #modal trigger="transport">
-                  <ng-template>
-                    <div class="wrapper">
-                      <ion-list style="background: #fff; margin-top: 15px;" lines="none">
-                        <ion-item>
-                          <ion-input label="Enter Password" type="password"></ion-input>
-                        </ion-item>
-                        <ion-button routerLink="/transport-admnin" class="button" id="login-opt" expand="block" size="large">Sign In</ion-button>
-                      </ion-list>
-                    </div>
-                  </ng-template>
-                </ion-modal>
+        <!-- Admin Login Form (Initially Hidden) -->
+        <ion-card id="list-card" *ngIf="!isStudentFormVisible">
+          <ion-card-header>
+            <ion-card-title style="color: gray;">Admin Sign In.</ion-card-title>
+            <ion-card-subtitle>Please enter your password !</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-list lines="none" id="list">
+            <form (ngSubmit)="adminLogin()">
+              <ion-item>
+                <ion-input label="Password" type="password" [(ngModel)]="password" name="password" required></ion-input>
               </ion-item>
+              <ion-button shape="round" expand="full" type="submit">Login</ion-button>
+            </form>
+          </ion-list>
 
-
-
-              <ion-item id="sports"> 
-                <ion-icon aria-hidden="true" slot="end" class="icons" name="log-in-outline"></ion-icon>
-                <ion-label>Sports Office</ion-label>
-                <ion-modal id="example-modal" #modal trigger="sports">
-                  <ng-template>
-                    <div class="wrapper">
-                      <ion-list style="background: #fff; margin-top: 15px;" lines="none">
-                        <ion-item>
-                          <ion-input label="Enter Password" type="password"></ion-input>
-                        </ion-item>
-                        <ion-button routerLink="/sport-admin" class="button" id="login-opt" expand="block" size="large">Sign In</ion-button>
-                      </ion-list>
-                    </div>
-                  </ng-template>
-                </ion-modal>
-              </ion-item>
-            </ion-list>      
+          <!-- Button to switch back to student login -->
+          <ion-button fill="outline" style="--background: transparent; color: gray; font-weight: bold; --border-color: indigo; width: 25%; text-align: center; align-items: center; justify-content: center; display: flex;"  id="login-student" size="small" (click)="toggleForm()">
+            <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+            Student
+          </ion-button>
         </ion-card>
         
       </ion-content>
     </ng-template>
   </ion-modal>
-
-
-
 </ion-content>

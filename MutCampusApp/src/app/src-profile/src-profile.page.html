@@ -8,10 +8,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  
   <ion-card id="list-card">
     <ion-card-content>
       <div class="profile-image">
-        <img [src]="'http://192.168.101.153:3000/' + adminProfile.profile_picture"> <!-- Display profile picture -->
+        <img [src]="'http://172.16.21.22:3000/' + adminProfile.profile_picture"> <!-- Display profile picture -->
       </div>
       <div class="details">
         <h2>{{ adminProfile.name }}</h2> <!-- Display admin name -->
@@ -39,6 +44,7 @@
                   <ion-icon name="images-sharp"></ion-icon>
                 </label>
                 <input type="file" id="file-upload" name="profile_picture" style="display: none;">
+                <ion-icon name="camera" (click)="openCamera()"></ion-icon> <!-- New icon for taking a picture -->
               </ion-item>
               <ion-button class="form-button" expand="full" type="submit">Update</ion-button>
             </form>

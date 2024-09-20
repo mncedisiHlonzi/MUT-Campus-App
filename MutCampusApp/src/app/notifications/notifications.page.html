@@ -11,68 +11,38 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
-  <ion-card id="list-card">
+  <ion-card *ngIf="unreadNotifications.length > 0" id="list-card">
     <ion-card-header>
-      <ion-card-title>Unread Notifications <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
+      <ion-card-title>New Notifications <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
     </ion-card-header>
-  
-      <ion-list lines="none" id="list">
-        <ion-item detail="true"> 
-          <ion-icon class="notifications-icon" name="notifications-circle-sharp"></ion-icon>
-          <ion-label class="post-details">
-            <h3>New Announcement</h3>
-            <p>From <span class="post-from">SRC Office</span> • <span class="time-posted">3m Ago</span></p>
-          </ion-label>
-        </ion-item>
-        <ion-item detail="true"> 
-          <ion-icon class="notifications-icon" name="notifications-circle-sharp"></ion-icon>
-          <ion-label class="post-details">
-            <h3>New Announcement</h3>
-            <p>From <span class="post-from">Sports Office</span> • <span class="time-posted">5h Ago</span></p>
-          </ion-label>
-        </ion-item>
-        <ion-item detail="true"> 
-          <ion-icon class="notifications-icon" name="notifications-circle-sharp"></ion-icon>
-          <ion-label class="post-details">
-            <h3>New Announcement</h3>
-            <p>From <span class="post-from">Transport Office</span> • <span class="time-posted">17s Ago</span></p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
-
+    <ion-list lines="none" id="list">
+      <ion-item *ngFor="let notification of unreadNotifications" detail="true" (click)="handleNotificationRead(notification.notificationId)"> <!--Post notifications-->
+        <ion-icon class="notifications-icon" name="notifications-circle-sharp"></ion-icon>
+        <ion-label class="post-details">
+          <h3>{{ notification.title }}</h3>
+          <p>From <span class="post-from">{{ getOfficeName(notification.fromOffice) }}</span> • <span class="time-posted">{{ notification.createdAt | dateAgo }}</span></p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
   </ion-card>
 
-
-  <ion-card id="list-card">
+  <ion-card *ngIf="readNotifications.length > 0" id="list-card">
     <ion-card-header>
-      <ion-card-title>Read Notifications <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
+      <ion-card-title>Opened Notifications <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
     </ion-card-header>
-
-      <ion-list lines="none" id="list">
-        <ion-item class="read" detail="true"> 
-          <ion-icon class="notifications-icon" name="notifications-circle-sharp"></ion-icon>
-          <ion-label class="post-details">
-            <h3>New Announcement</h3>
-            <p>From <span class="post-from">SRC Office</span> • <span class="time-posted">23h Ago</span></p>
-          </ion-label>
-        </ion-item>
-        <ion-item class="read" detail="true"> 
-          <ion-icon class="notifications-icon" name="notifications-circle-sharp"></ion-icon>
-          <ion-label class="post-details">
-            <h3>New Announcement</h3>
-            <p>From <span class="post-from">Sports Office</span> • <span class="time-posted">7 months</span></p>
-          </ion-label>
-        </ion-item>
-        <ion-item class="read" detail="true"> 
-          <ion-icon class="notifications-icon" name="notifications-circle-sharp"></ion-icon>
-          <ion-label class="post-details">
-            <h3>New Announcement</h3>
-            <p>From <span class="post-from">Transport Office</span> • <span class="time-posted">2 years</span></p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
-
+    <ion-list lines="none" id="list">
+      <ion-item *ngFor="let notification of readNotifications" class="read" detail="true" (click)="handleNotificationRead(notification.notificationId)"> <!--Opened post notifications-->
+        <ion-icon class="notifications-icon" name="notifications-circle-sharp"></ion-icon>
+        <ion-label class="post-details">
+          <h3>{{ notification.title }}</h3>
+          <p>From <span class="post-from">{{ getOfficeName(notification.fromOffice) }}</span> • <span class="time-posted">{{ notification.createdAt | dateAgo }}</span></p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
   </ion-card>
 
+  <div *ngIf="noNotifications" class="no-notifications">
+    <img src="../../assets/images/timetable.jpg" alt="No Notifications">
+    <p>No notifications available</p>
+  </div>
 </ion-content>

@@ -6,13 +6,18 @@
     <ion-title>Announcements</ion-title>
     <ion-buttons slot="end">
       <ion-button>
-        <ion-icon name="newspaper-sharp"></ion-icon>
+        <ion-icon name="bookmarks-sharp"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <div *ngIf="posts.length > 0; else noPosts" class="content">
     <div *ngFor="let post of posts" class="posts">
       <div class="post_header">
@@ -35,45 +40,27 @@
 
       <div class="post_footer">
         <ion-button class="like_button" shape="round" size="default" (click)="likePost(post.postId)">
-          <ion-icon style="font-weight: bold;" slot="start" name="heart-outline"></ion-icon>
+          <ion-icon 
+            [name]="post.hasLiked ? 'heart' : 'heart-outline'" 
+            [style.color]="post.hasLiked ? 'indigo' : 'default'" 
+            style="font-weight: bold;" 
+            slot="start">
+          </ion-icon>
           {{ post.likes > 0 ? post.likes : '' }}
         </ion-button>
-        <ion-button id="open-comments-{{ post.postId }}" class="comment_button" shape="round" size="default" (click)="openComments(post.postId)">
+
+        <ion-button class="comment_button" shape="round" size="default" (click)="openComments(post.postId)">
           <ion-icon style="font-weight: bold;" slot="start" name="chatbubble-outline"></ion-icon>
           {{ post.comment_count > 0 ? post.comment_count : '' }}
         </ion-button>
       </div>
     </div>
-
-    <ion-modal id="comments-modal" [trigger]="'open-comments-' + selectedPostId" [initialBreakpoint]="0.80" [breakpoints]="[0.80]" handleBehavior="cycle" style="--border-radius: 17px;">
-      <ng-template>
-        <ion-header class="ion-no-border" [translucent]="true" style="text-align: center; color: gray; margin-top: 20px; margin-bottom: 5px;">
-          <ion-label style="background-color: #fff; font-weight: bold;">{{ comments.length }}<span> Comments</span></ion-label>
-        </ion-header>
-        <form id="comment-form" (ngSubmit)="sendComment()">
-          <ion-textarea [(ngModel)]="newComment" name="newComment" placeholder="Add your comment in post!" spellcheck="false" required auto-grow="true"></ion-textarea>
-          <ion-button fill="clear" type="submit"><ion-icon name="send-sharp"></ion-icon></ion-button>
-        </form>
-        <ion-content class="ion-padding">
-          <ion-list class="scrollable-content" lines="none">
-            <ion-item *ngFor="let comment of comments" class="comment-item">
-              <ion-avatar aria-hidden="true" slot="start">
-                <img alt="" src="../../assets/images/tyc.jpg" />
-              </ion-avatar>
-              <ion-label>
-                <p>Mncedisi</p>
-                <h6>{{ comment.comment }}</h6>
-                <p><span>{{ comment.created_at | dateAgo }}</span></p>
-              </ion-label>
-            </ion-item>
-          </ion-list>
-        </ion-content>
-      </ng-template>
-    </ion-modal>
   </div>
-  <ng-template #noPosts>
-    <div class="noPosts" style="width: 100%; height: 100vh; display: flex; background-color: #fff; align-items: center;">
-      <p style="color: #000; font-weight: 500; text-align: center; width: 100%;">Loading posts ...</p>
+
+  <ng-template class="no-posts-template" #noPosts>
+    <div class="no-posts-container">
+      <img src="../../assets/images/timetable.jpg" alt="No Notifications">
+      <p>No posts available</p>
     </div>
   </ng-template>
 </ion-content>

@@ -33,11 +33,11 @@ export class DatePipe implements PipeTransform {
     }
     else if (differenceInSeconds > 2629746 && differenceInSeconds <= 31536000) {
       intervalValue = this.convertSecondToMonths(differenceInSeconds);
-      return `${intervalValue}m${intervalValue > 1 ? '' : ''}`;
+      return `${intervalValue} Mon${intervalValue > 1 ? '' : ''}`;
     }
     else if (differenceInSeconds > 31536000) {
       intervalValue = this.convertSecondToYears(differenceInSeconds);
-      return `${intervalValue}y${intervalValue > 1 ? '' : ''}`;
+      return `${intervalValue} year${intervalValue > 1 ? '' : ''}`;
     }
     return '';
   }

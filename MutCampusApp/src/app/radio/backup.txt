@@ -1,0 +1,183 @@
+import { Component, ElementRef, OnInit, AfterViewInit, QueryList, ViewChild, ViewChildren, Renderer2 } from '@angular/core';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+
+interface Podcast {
+  title: string;
+  subtitle: string;
+  imageUrl: string;
+  audioUrl: string;
+  isPlaying: boolean;
+  currentTime: string;
+  isMuted: boolean;
+  audioElement?: HTMLAudioElement;
+}
+
+@Component({
+  selector: 'app-tab4',
+  templateUrl: './tab4.page.html',
+  styleUrls: ['./tab4.page.scss'],
+})
+export class Tab4Page implements OnInit, AfterViewInit {
+  @ViewChild('audioElement') audioElementRef!: ElementRef<HTMLAudioElement>;
+  @ViewChildren('audioElement') audioElementRefs!: QueryList<ElementRef<HTMLAudioElement>>;
+  private audioElement!: HTMLAudioElement;
+  private _volume: number = 0.5;
+  private _isMuted: boolean = false;
+  currentTime: string = '00:00';
+  isPlaying = false;
+  podcastUrl: string = 'https://example.com/path/to/podcast.mp3'; 
+  radioUrl: string = 'https://edge.iono.fm/xice/153_medium.aac?ref=https%3A%2F%2Fiono.fm%2Fs%2F153&adToken=';
+
+  get volume(): number {
+    return this._volume;
+  }
+
+  set volume(value: number) {
+    this._volume = value;
+    if (this.audioElement) {
+      this.audioElement.volume = this._volume;
+    }
+  }
+
+  get isMuted(): boolean {
+    return this._isMuted;
+  }
+
+  set isMuted(value: boolean) {
+    this._isMuted = value;
+    if (this.audioElement) {
+      this.audioElement.muted = this._isMuted;
+    }
+  }
+
+  podcasts: Podcast[] = [
+    {
+      title: 'MUT News with Slindile Ngobese',
+      subtitle: '#GoDigitalSAFoundation #KZNRoadAccidents #BasicEducationMinister #WeatherReport',
+      imageUrl: '../../assets/images/mutRadio.jpg',
+      audioUrl: 'https://youtu.be/sRs2o36a1Us?si=RZ-C3enH-PmvR5I8',
+      isPlaying: false,
+      currentTime: '00:00',
+      isMuted: false,
+    },
+    // Add 4 more podcast objects with similar structure
+  ];
+
+  constructor(private renderer: Renderer2, private elementRef: ElementRef, private socialSharing: SocialSharing) {}
+
+  // Live Stream Methods
+  togglePlayPause() {
+    this.isPlaying = !this.isPlaying;
+    if (this.isPlaying) {
+      this.audioElement.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else {
+      this.audioElement.pause();
+    }
+  }
+
+  toggleMute() {
+    this.isMuted = !this.isMuted;
+    //this.audioElement.muted = this.isMuted;
+  }
+
+  ngOnInit(): void {}
+
+  ngAfterViewInit(): void {
+    this.audioElementRefs.forEach((audioElementRef, index) => {
+      const audioElement = audioElementRef.nativeElement;
+      this.podcasts[index].audioElement = audioElement;
+
+      audioElement.addEventListener('timeupdate', () => {
+        this.updateTime(index);
+      });
+      audioElement.addEventListener('canplay', () => {
+        console.log('Audio can play');
+      });
+      audioElement.addEventListener('error', (event) => {
+        console.error('Error event:', event);
+      });
+    });
+  }
+
+  initAudio(): void {
+    this.audioElement.src = 'https://edge.iono.fm/xice/153_medium.aac?ref=https%3A%2F%2Fiono.fm%2Fs%2F153&adToken='; 
+    this.audioElement.load();
+    this.audioElement.volume = this._volume;
+    this.audioElement.muted = this._isMuted;
+  }
+
+  play(): void {
+    console.log('Play method called');
+    this.audioElement.play().catch(error => {
+      console.error('Error playing audio:', error);
+    });
+  }
+
+  pause(): void {
+    console.log('Pause method called');
+    this.audioElement.pause();
+  }
+
+  volumeChange(event: CustomEvent): void {
+    const value = (event.detail.value as number);
+    this.volume = value;
+  }
+
+  updateTime(index: number): void {
+    const audioElement = this.podcasts[index].audioElement;
+    if (audioElement) {
+      const minutes = Math.floor(audioElement.currentTime / 60);
+      const seconds = Math.floor(audioElement.currentTime % 60);
+      this.podcasts[index].currentTime = `${this.pad(minutes)}:${this.pad(seconds)}`;
+    }
+  }
+
+  pad(value: number): string {
+    return value < 10 ? `0${value}` : `${value}`;
+  }
+
+  seek(event: CustomEvent): void {
+    const value = (event.detail.value as number);
+    this.audioElement.currentTime = value;
+  }
+
+  //Podcast
+  sharePodcast(index: number): void {
+    const podcast = this.podcasts[index];
+    this.socialSharing.share('Check out this podcast!', podcast.title, undefined, podcast.audioUrl).then(() => {
+      console.log('Podcast shared successfully');
+    }).catch(error => {
+      console.error('Error sharing podcast:', error);
+    });
+  }
+
+  downloadPodcast(index: number): void {
+    const podcast = this.podcasts[index];
+    const link = document.createElement('a');
+    link.href = podcast.audioUrl;
+    link.download = `${podcast.title}.mp3`;
+    link.click();
+  }
+
+  togglePlayPausePod(index: number) {
+    const podcast = this.podcasts[index];
+    podcast.isPlaying = !podcast.isPlaying;
+    if (podcast.isPlaying) {
+      podcast.audioElement?.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else {
+      podcast.audioElement?.pause();
+    }
+  }
+
+  toggleMutePod(index: number) {
+    const podcast = this.podcasts[index];
+    podcast.isMuted = !podcast.isMuted;
+    if (podcast.audioElement) {
+      podcast.audioElement.muted = podcast.isMuted;
+    }
+  }
+}

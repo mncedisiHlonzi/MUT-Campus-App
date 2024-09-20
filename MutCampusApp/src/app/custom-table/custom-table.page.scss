@@ -1,0 +1,320 @@
+ion-header {
+  --background: #4B0A44;
+  --color: white;
+}
+
+ion-toolbar {
+  --background: #4B0A44;
+}
+
+ion-segment {
+  --indicator-color: #4B0A44;
+  --color-checked: #4B0A44;
+  --color: #4B0A44;
+  --background: white;
+  --scrollbar-color: #4B0A44; /* Color for scrollbar */
+  --border-radius: 0;
+}
+
+ion-segment-button {
+  ion-label {
+    font-weight: bold;
+    color: #4B0A44;
+  }
+
+  &.segment-activated {
+    --background: #F1F1F1;
+    color: #4B0A44;
+  }
+}
+
+ion-list {
+  margin-top: 10px;
+}
+
+ion-item {
+  --background: white;
+  --border-color: #F1F1F1;
+  --color: #4B0A44;
+}
+
+ion-icon {
+  color: #4B0A44;
+}
+
+ion-fab-button {
+  --background: #4B0A44;
+  --color: white;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+p {
+  color: #8A8A8A;
+}
+
+ion-modal::part(content) {
+  --background: white;
+  --border-radius: 20px;
+  --padding: 16px;
+}
+
+ion-modal ion-header {
+  background-color: #4B0A44;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: white;
+  text-align: center;
+}
+
+ion-modal ion-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+  
+  ion-list {
+    margin-top: 10px;
+  }
+  
+  ion-item {
+    --background: white;
+    --border-color: #F1F1F1;
+    --color: #4B0A44; /* Maroon color for the text */
+    --padding-start: 15px;
+    --padding-end: 15px;
+  }
+  
+  ion-icon {
+    color: #4B0A44; /* Maroon color for the icons */
+  }
+  
+  ion-fab-button {
+    --background: #4B0A44; /* Maroon color for the Create button */
+    --color: white;
+  }
+  
+  h2 {
+    font-weight: bold;
+  }
+  
+  p {
+    color: #8A8A8A; /* Grey color for the text */
+    margin-top: 4px;
+  }
+  
+  /* Modal container styling */
+  ion-modal::part(content) {
+    --background: white;
+    --border-radius: 20px;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 16px;
+    --padding-bottom: 16px;
+  }
+  
+  /* Header styling */
+  ion-modal ion-header {
+    background-color: #4d0033; /* Adjust to the purple color */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: white;
+    text-align: center;
+  }
+  
+  /* Toolbar title */
+  ion-modal ion-toolbar {
+    --background: transparent;
+    --color: white;
+    text-align: center;
+  }
+  
+  /* Modal title styling */
+  ion-modal ion-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  /* Input fields */
+  ion-modal ion-item {
+    --background: #f3f3f3;
+    --border-radius: 10px;
+    margin-top: 10px;
+    padding: 8px;
+  }
+  
+  /* Placeholder text color */
+  ion-modal ion-label {
+    color: #777;
+  }
+  
+  /* Weekdays styling */
+  .week_days {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #f3f3f3;
+    border-radius: 10px;
+    margin-top: 10px;
+    list-style: none; /* Remove bullet points */
+  }
+  
+  .week_days li {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #f3f3f3; /* Default background color */
+    color: #4d0033; /* Default text color */
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Highlight selected weekday */
+  .week_days li.selected {
+    background-color: #4d0033; /* Highlight color */
+    color: white;
+  }
+  
+  /* Button styling */
+  ion-modal ion-button {
+    --background: #4d0033; /* Adjust to the purple color */
+    --border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  ion-modal ion-button:focus {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Time Picker Modal */
+  .time-picker {
+    --ion-background-color: #FFFFFF;
+    --ion-text-color: #4A1F43;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .time-input {
+    width: 50px; /* Further reduced width */
+    height: 30px; /* Reduced height */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    margin: 5px; /* Reduced margin */
+  }
+  
+  .am-pm-toggle {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px; /* Reduced margin */
+  }
+  
+  .am-pm-button {
+    padding: 5px; /* Further reduced padding */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px; /* Further reduced font size */
+  }
+  
+  .am-pm-button.active {
+    background-color: #4A1F43;
+    color: #fff;
+  }
+  
+  .confirmation-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px; /* Reduced margin */
+  }
+  
+  .confirmation-button {
+    padding: 8px 16px; /* Reduced padding */
+    background-color: #4A1F43;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .time-container {
+    display: flex;
+    gap: 5px; /* Reduced gap */
+    align-items: center;
+  }
+  
+  ion-input {
+    width: 40px; /* Further reduced width */
+    text-align: center;
+  }
+  
+  ion-select {
+    margin-left: 5px; /* Reduced margin */
+  }
+  
+  .startEnd {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px; /* Reduced padding */
+    font-size: 16px; /* Reduced font size */
+  
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40%; /* Reduced width */
+      text-align: center;
+      padding: 8px; /* Reduced padding */
+      border: 2px solid #4a0d29; /* Border color */
+      border-radius: 5px;
+      font-weight: bold;
+      color: #4a0d29; /* Text color */
+      position: relative;
+  
+      /* Arrow icon */
+      &::before {
+        content: '▼'; /* Arrow character */
+        position: absolute;
+        left: 8px; /* Adjusted position */
+        font-size: 10px; /* Reduced font size */
+      }
+    }
+  }
+  
+  .custom-modal {
+    --width: 50%; /* Adjust the width as needed */
+    --height: 50%; /* Adjust the height as needed */
+  }
+  
+  .time-inputs {
+    display: flex;
+    align-items: center;
+    padding: 0 1px; /* Reduced padding */
+  
+    ion-item {
+      
+    }
+  
+    .am-pm-selector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 50px; /* Reduced font size */
+  
+      span {
+        cursor: pointer;
+        padding: 4px 8px; /* Reduced padding */
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 4px; /* Reduced margin */
+      }
+    }
+  }
+  

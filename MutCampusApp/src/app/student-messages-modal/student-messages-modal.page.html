@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Voice My Concern</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list lines="none">
+    <ion-item *ngFor="let item of messages">
+      <ion-label>
+        <p style="color: #444444; font-weight: bold; margin-bottom: 2px;">{{ item.subject }}</p> <!-- Display the subject -->
+        <p>{{ item.message }}</p>
+        <p><small>{{ item.messageCreatedAt | date }}</small></p>
+        
+        <p style="color: #575757; font-weight: bold; display: flex; justify-content: space-between; margin-top: 5px;" *ngIf="item.responseMessage">
+          <span>
+            <ion-icon name="return-down-forward-outline"></ion-icon> 
+            {{ item.responseMessage }}
+          </span>
+          <span style="font-size: 10px; color: #575757; font-weight: bold;">
+            Responded • {{ item.responseCreatedAt | dateAgo }}
+          </span>
+        </p>
+        
+        
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

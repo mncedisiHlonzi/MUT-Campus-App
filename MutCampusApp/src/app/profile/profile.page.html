@@ -11,9 +11,38 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card id="list-card">
+    <ion-card-content>
+      <div class="profile-image">
+        <img [src]="student?.profile_picture ? 'http://172.16.21.22:3000/' + student.profile_picture : '../../assets/images/user-default.png'" alt="Profile Picture">
+      </div>
+      <div class="details">
+        <h2>{{ student?.name }} {{ student?.surname }}</h2>
+      </div>
+      <div class="details">
+        <p>Student Number : <span>{{ student?.studentNumber }}</span></p>
+        <p>Email : <span>{{ student?.email }}</span></p>
+        <p>Faculty : <span>{{ student?.faculty }}</span></p>
+      </div>
+      <ion-button id="trigger-button" class="button">
+        <ion-icon style="font-weight: bold;" slot="start" name="pencil-sharp"></ion-icon>
+        Profile Picture
+      </ion-button>
+      <ion-popover trigger="trigger-button">
+        <ng-template>
+          <ion-content class="ion-padding">
+            <form (submit)="updateProfilePicture()">
+              <ion-item lines="none" class="change-img">
+                <label for="file-upload">
+                  <ion-icon name="images-sharp"></ion-icon>
+                </label>
+                <input type="file" id="file-upload" (change)="onFileSelected($event)" style="display: none;">
+              </ion-item>
+              <ion-button class="form-button" expand="full" type="submit">Update</ion-button>
+            </form>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

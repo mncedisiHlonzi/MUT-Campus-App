@@ -1,0 +1,108 @@
+ion-header {
+    ion-toolbar {
+      --ion-toolbar-background: #fff;
+      color: #000;
+      font-weight: bold;
+      box-shadow: none;
+    }
+  }
+
+  ion-content {
+    --ion-background-color: #ffffff;
+  }
+  
+  ion-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  
+  ion-list {
+    margin: 0;
+    background: #fff;
+  }
+  
+  ion-item {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --background: #ffffff;
+    --color: #000;
+    margin-bottom: 8px;
+    border-radius: 7px;
+    border: 2px solid #f7f7f7;
+}
+
+  
+  ion-label {
+    font-size: 1rem;
+    color: #000; /* Dark grey text color */
+  }
+  
+  ion-label p {
+    margin: 0;
+  }
+  
+  ion-select {
+    --padding-start: 8px;
+    --padding-end: 8px;
+  }
+  
+  ion-select-option {
+    font-size: 0.9rem;
+  }
+  
+  /* Styling for response section */
+  ion-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  ion-select-placeholder {
+    color: #fff; /* Placeholder color */
+  }
+
+  p{
+    color: #000;
+  }
+  
+  /* Styling for responses */
+  p strong {
+    color: #575757; /* Blue color for labels */
+  }
+  
+  /* Styling for the date */
+  small {
+    color: #575757; /* Lighter grey for date */
+    font-weight: bold;
+    font-size: 0.6rem;
+  }
+
+
+/* Style for each ion-select-option */
+.custom-option {
+  --color: #000; /* Text color for the options */
+  --background: #ffffff;
+  --background-hover: #e2e2e2; /* Background color on hover */
+  --padding-start: 12px;
+  --padding-end: 12px;
+}
+
+/* Optional: Change the style when focused */
+.custom-select:focus {
+  --box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Focus outline */
+  --border-color: indigo; /* Border color when focused */
+}
+
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    ion-title {
+      font-size: 1.2rem;
+    }
+  
+    ion-item {
+      --padding-start: 12px;
+      --padding-end: 12px;
+    }
+  }
+  

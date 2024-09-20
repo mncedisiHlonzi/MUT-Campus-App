@@ -2,10 +2,10 @@
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <ion-toolbar>
     <div class="top-bar">
-      <div class="profile">
+      <div class="profile" routerLink="/src-profile">
         <div class="profile-frm"> 
             <div class="profile-image">
-                <img [src]="'http://192.168.101.153:3000/' + adminProfile.profile_picture" alt="Profile Picture"> <!-- Display profile picture -->
+                <img [src]="'http://172.16.21.22:3000/' + adminProfile.profile_picture" alt="Profile Picture"> <!-- Display profile picture -->
             </div>
         </div>
         <div class="profile-name">
@@ -13,15 +13,23 @@
             <div class="role">{{ adminProfile.position }}</div> <!-- Display admin position -->
         </div>
       </div>
-      <div class="bell-icon" routerLink="/notifications">
-        <ion-badge style="border-radius: 10px; z-index: 9999; position: fixed; margin-left: -8px; margin-top: 5px;" color="danger" routerLink="/notifications">25</ion-badge>
-        <i class='bx bx-bell'></i>
+      <div class="bell-icon" routerLink="/inbox-notifications">
+        <ion-badge *ngIf="newNotificationCount > 0" style="border-radius: 10px; z-index: 9999; position: fixed; margin-left: -8px; margin-top: 5px;" color="danger">
+          {{ newNotificationCount }}
+        </ion-badge>
+        <i class='bx bx-mail-send'></i>
       </div>
     </div>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content [fullscreen]="true">
+  
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button>
       <ion-icon name="chevron-up-outline"></ion-icon>
@@ -54,7 +62,7 @@
           <ion-icon class="ionicons" name="hammer-sharp"></ion-icon>
           <div class="Title">Manage Posts</div>
         </ion-col>
-        <ion-col routerLink="/timetable">
+        <ion-col routerLink="/inbox">
           <ion-icon class="ionicons" name="megaphone-sharp"></ion-icon>
           <div class="Title">View Concerns</div>
         </ion-col>

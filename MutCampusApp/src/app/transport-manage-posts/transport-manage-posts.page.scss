@@ -81,7 +81,7 @@ ion-header {
     display: flex;
   }
   .posts .post_header .person{
-    width: 60px;
+    width: 65px;
     height: 60px;
     border-radius: 50%;
     background-color: #fff;
@@ -265,3 +265,26 @@ ion-header {
     color: gray;
     font-weight: 500;
   }
+
+  ion-list {
+    background-color: #fff;
+  }
+  ion-item {
+    --background: #fff;
+    color: #000;
+  }
+
+  .no-posts-container {
+
+    height: 100%;
+    text-align: center;
+    background-color: #fff;
+    color: #555; /* Change this color as per your design */
+  }
+  
+  .no-posts-container p {
+    font-size: 18px; /* Adjust the font size as needed */
+    color: #777; /* Change this color as per your design */
+    margin-top: 0;
+  }
+  

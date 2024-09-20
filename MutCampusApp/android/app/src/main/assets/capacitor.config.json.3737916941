@@ -1,0 +1,35 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "MutCampusApp",
+	"webDir": "www",
+	"plugins": {
+		"CapacitorSQLite": {
+			"iosDatabaseLocation": "Library/CapacitorDatabase",
+			"iosIsEncryption": true,
+			"iosKeychainPrefix": "angular-sqlite-app-starter",
+			"iosBiometric": {
+				"biometricAuth": false,
+				"biometricTitle": "Biometric login for capacitor sqlite"
+			},
+			"androidIsEncryption": true,
+			"androidBiometric": {
+				"biometricAuth": false,
+				"biometricTitle": "Biometric login for capacitor sqlite",
+				"biometricSubTitle": "Log in using your biometric"
+			},
+			"electronIsEncryption": true,
+			"electronWindowsLocation": "C:\\ProgramData\\CapacitorDatabases",
+			"electronMacLocation": "/Volumes/Development_Lacie/Development/Databases",
+			"electronLinuxLocation": "Databases"
+		},
+		"SplashScreen": {
+			"launchShowDuration": 5000,
+			"backgroundColor": "#fff",
+			"showSpinner": false,
+			"androidSpinnerStyle": "large",
+			"iosSpinnerStyle": "small",
+			"splashFullScreen": true,
+			"splashImmersive": true
+		}
+	}
+}

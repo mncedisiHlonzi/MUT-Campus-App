@@ -1,0 +1,122 @@
+
+.custom-header {
+    background-color: #fff;
+    text-align: center;
+    color: gray;
+    padding-top: 15px;
+
+  }
+  .custom-label {
+    background-color: #fff;
+    font-weight: bold;
+  }
+  
+  .form-container {
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: center;
+  }
+    
+ion-content {
+    --ion-background-color: #fff;
+    text-align: center;
+    align-items: center;
+}
+ion-list {
+    --background-color: #fff;
+}
+ion-item {
+    --background: #fff;
+}
+
+  ion-header ion-label{
+    color: #000;
+  }
+  #comment-form{
+    background-color: #f5f5f5;
+    width: 95%;
+    margin: auto;
+    border-radius: 7px;
+    margin-bottom: 7px;
+    display: flex;
+    text-align: center;
+  }
+  #comment-form textarea{
+    margin: auto;
+    background-color: #f5f5f5;
+    resize: none;
+    font-size: 18px;
+    border: none;
+    padding-top: 10px;
+    padding-left: 10px;
+    color: gray;
+    height: 35px;
+    outline: none;
+  }
+  ion-textarea {
+    --color: gray;
+    --placeholder-opacity: 1;
+    --highlight-color-focused: gray;
+    --highlight-color-invalid: gray;
+    --highlight-color-valid: gray;
+    --padding-bottom: none;
+    --border-color: #f5f5f5;
+  }
+  
+  #comment-form textarea::placeholder{
+    color: #858585;
+  }
+  #comment-form textarea:focus::placeholder{
+    color: gray;
+  }
+  
+  #comment-form ion-button{
+    --color: indigo;
+  }
+  
+  ion-content{
+    --background: #fff;
+    border-top: 1px solid gray;
+  }
+  ion-content ion-list{
+    background-color: #fff;
+    color: gray;
+    margin-bottom: 30px;
+  }
+  ion-content ion-list ion-item{
+    --background: #fff;
+  }
+  ion-content ion-list ion-item h6{
+    color: #000;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .comment-item {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .comment-avatar {
+    align-self: flex-start;
+  }
+  
+  ion-label {
+    flex: 1;
+    background-color: #eeeeee;
+    border-radius: 10px;
+  }
+  ion-content ion-list ion-item p{
+    color: #000;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 7px;
+  }
+  ion-content ion-list ion-item p span{
+    color: gray;
+    font-weight: 500;
+  }

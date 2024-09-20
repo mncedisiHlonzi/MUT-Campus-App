@@ -192,6 +192,35 @@ const routes: Routes = [
     path: 'sports-manage-posts',
     loadChildren: () => import('./sports-manage-posts/sports-manage-posts.module').then( m => m.SportsManagePostsPageModule)
   },
+  {
+    path: 'inbox',
+    loadChildren: () => import('./inbox/inbox.module').then( m => m.InboxPageModule)
+  },
+  {
+    path: 'inbox-notifications',
+    loadChildren: () => import('./inbox-notifications/inbox-notifications.module').then( m => m.InboxNotificationsPageModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+  },
+  {
+    path: 'comments-modal',
+    loadChildren: () => import('./comments-modal/comments-modal.module').then( m => m.CommentsModalPageModule)
+  },
+  {
+    path: 'custom-table',
+    loadChildren: () => import('./custom-table/custom-table.module').then( m => m.CustomTablePageModule)
+  },
+  {
+    path: 'concern-modal',
+    loadChildren: () => import('./concern-modal/concern-modal.module').then( m => m.ConcernModalPageModule)
+  },  {
+    path: 'student-messages-modal',
+    loadChildren: () => import('./student-messages-modal/student-messages-modal.module').then( m => m.StudentMessagesModalPageModule)
+  },
+
+
 ];
 @NgModule({
   imports: [

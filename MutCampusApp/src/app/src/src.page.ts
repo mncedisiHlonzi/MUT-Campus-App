@@ -31,7 +31,7 @@ export class SrcPage implements OnInit {
     formData.append('targetAudience', this.targetAudience);
     formData.append('image', this.selectedFile);
 
-    this.http.post('http://192.168.101.153:3000/upload', formData).subscribe(
+    this.http.post('http://172.16.21.22:3000/upload', formData).subscribe(
       response => {
         console.log('Post created!', response);
         // Optionally, you can reset the form fields here

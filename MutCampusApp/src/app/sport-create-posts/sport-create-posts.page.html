@@ -13,12 +13,12 @@
       <section class="post">
         <form (ngSubmit)="onSubmit()">
           <div class="content">
-            <img [src]="'http://192.168.101.153:3000/' + adminProfile.profile_picture" alt="Profile Picture">
+            <img [src]="'http://172.16.21.22:3000/' + adminProfile.profile_picture" alt="Profile Picture">
             <div class="details">
               <p class="create">Make Announcement<br><span>{{ adminProfile.position }}</span></p>
             </div>
           </div>
-          <textarea [(ngModel)]="announcementText" name="announcementText" placeholder="What's on your mind ?" spellcheck="false" required></textarea>
+          <textarea [(ngModel)]="announcementText" name="announcementText" placeholder="What's on your mind ?" spellcheck="false"></textarea>
           <div class="options">
             <p>Add to Your Post</p>
             <ul class="list">
@@ -30,7 +30,7 @@
               </li>
             </ul>
           </div>
-          <ion-select [(ngModel)]="targetAudience" name="targetAudience" aria-label="Faculties" interface="popover" placeholder="Select target audience">
+          <ion-select [(ngModel)]="targetAudience" name="targetAudience" aria-label="Faculties" interface="popover" placeholder="Select target audience" required>
             <ion-select-option value="all_student">All Students</ion-select-option>
             <ion-select-option value="engineering">Engineering</ion-select-option>
             <ion-select-option value="management_science">Management Science</ion-select-option>

@@ -1,0 +1,45 @@
+<ion-header class="ion-no-border" style="--background: indigo;" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title routerLink="/chat">Student's Concerns</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="chatbubbles-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!--<ion-list lines="none">
+    <ion-item *ngFor="let concern of concerns" (click)="openConcernModal(concern.studentId)">
+      <ion-label>
+        <strong>{{ concern.fromStudent }}</strong>
+        <p>{{ concern.message }}</p>
+        <ion-note>{{ concern.createdAt | dateAgo }}</ion-note>
+      </ion-label>
+    </ion-item>
+  </ion-list>-->
+
+
+
+  <ion-list lines="none" [inset]="true">
+    <ion-item *ngFor="let concern of concerns" (click)="openConcernModal(concern.studentId)">
+      <div class="unread-indicator-wrapper" slot="start">
+        <div class="unread-indicator"></div>
+      </div>
+      <ion-label>
+        <strong>{{ concern.fromStudent }}</strong>
+        <ion-text class="subject">{{ concern.subject }}</ion-text><br />
+        <ion-note color="medium">{{ concern.message }}</ion-note>
+      </ion-label>
+      <div class="metadata-end-wrapper" slot="end">
+        <ion-note color="medium">{{ concern.createdAt | dateAgo }}</ion-note>
+        <ion-icon color="medium" name="chevron-forward"></ion-icon>
+      </div>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

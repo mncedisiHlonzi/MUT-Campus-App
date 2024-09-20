@@ -9,6 +9,10 @@ ion-header {
 
 ion-content {
   --ion-background-color: #ffffff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
 }
 #card{
   --background: #fff;
@@ -26,10 +30,18 @@ ion-content {
   text-align: center;
   align-items: center;
 }
+
 #play .icon ion-icon{
   font-size: 60px;
   color: indigo;
 }
+
+.icon {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+
 .live{
   display: flex;
   height: 30px;
@@ -49,16 +61,11 @@ ion-content {
   color: indigo;
 }
 
+ion-card-content p {
+  margin: 10px 0;
+}
 
-
-
-
-
-
-
-
-
-ion-modal#example-modal {
+ion-modal #example-modal {
   --width: 90%;
   margin: auto;
   --height: fit-content;
@@ -67,7 +74,7 @@ ion-modal#example-modal {
   --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
 }
 
-ion-modal#example-modal ion-icon {
+ion-modal #example-modal ion-icon {
   margin-right: 6px;
 
   width: 48px;
@@ -78,7 +85,7 @@ ion-modal#example-modal ion-icon {
   color: #aaaaaa;
 }
 
-ion-modal#example-modal .wrapper {
+ion-modal #example-modal .wrapper {
   margin-bottom: 10px;
 }
 
@@ -90,15 +97,6 @@ ion-modal#example-modal .wrapper {
   background-color: indigo;
   text-align: center;
 }
-
-
-
-
-
-
-
-
-
 
 #grid_card{
   height: 400px;
@@ -139,4 +137,22 @@ ion-col {
   background-image: url('../../assets/images/line.jpg');
   background-size: cover;
   background-position: center;
+}
+
+#podcast-image {
+  width: 100%; 
+  height: auto; 
+  display: block; 
+  margin-bottom: 10px; 
+  border-top-left-radius: 8px; 
+  border-top-right-radius: 8px; 
+}
+.action {
+
+  display: block;
+}
+
+.action ion-button{
+  background: indigo;
+  display: block;
 }

@@ -1,0 +1,231 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>TIMETABLE+</ion-title>
+  </ion-toolbar>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Scrollable Segment -->
+  <ion-segment scrollable color="light" [value]="selectedDay" (ionChange)="onSegmentChange($event)">
+    <ion-segment-button value="Monday"><ion-label>Monday</ion-label></ion-segment-button>
+    <ion-segment-button value="Tuesday"><ion-label>Tuesday</ion-label></ion-segment-button>
+    <ion-segment-button value="Wednesday"><ion-label>Wednesday</ion-label></ion-segment-button>
+    <ion-segment-button value="Thursday"><ion-label>Thursday</ion-label></ion-segment-button>
+    <ion-segment-button value="Friday"><ion-label>Friday</ion-label></ion-segment-button>
+    <ion-segment-button value="Saturday"><ion-label>Saturday</ion-label></ion-segment-button>
+    <ion-segment-button value="Sunday"><ion-label>Sunday</ion-label></ion-segment-button>
+  </ion-segment>
+
+  <!-- Events List -->
+  <ion-list>
+    <ng-container *ngIf="(events[selectedDay] || []).length > 0; else noEvents">
+      <ion-item lines="full" *ngFor="let event of events[selectedDay]; let i = index">
+        <ion-label>
+          <h2>{{ event.time }}</h2>
+          <p>{{ event.taskName }}</p>
+          <p>{{ event.taskDescription }}</p>
+        </ion-label>
+        <ion-button fill="clear" slot="end" (click)="editEvent(event, i)">
+          <ion-icon name="pencil-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" slot="end" (click)="deleteEvent(event)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ng-container>
+    
+    <ng-template #noEvents>
+      <ion-item lines="full">
+        <ion-label>
+          <p>No events for this day</p>
+        </ion-label>
+      </ion-item>
+    </ng-template>
+  </ion-list>
+
+  <!-- Floating Add Event Button -->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button color="primary" (click)="openModal()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+
+  <!-- Main Modal for Adding Event -->
+  <ion-modal #mainModal>
+    <ng-template>
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Create Event</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="dismiss()">
+              <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item lines="none">
+          <ion-label position="stacked">Enter Task Name</ion-label>
+          <ion-input placeholder="Enter Task Name" [(ngModel)]="taskName"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="stacked">Enter Description (Optional)</ion-label>
+          <ion-textarea placeholder="Enter Description" [(ngModel)]="taskDescription"></ion-textarea>
+        </ion-item>
+        <ion-item lines="none">
+          <ul class="week_days">
+            <li (click)="selectDay('Monday')" [class.selected]="selectedWeekdays.includes('Monday')">M</li>
+            <li (click)="selectDay('Tuesday')" [class.selected]="selectedWeekdays.includes('Tuesday')">T</li>
+            <li (click)="selectDay('Wednesday')" [class.selected]="selectedWeekdays.includes('Wednesday')">W</li>
+            <li (click)="selectDay('Thursday')" [class.selected]="selectedWeekdays.includes('Thursday')">T</li>
+            <li (click)="selectDay('Friday')" [class.selected]="selectedWeekdays.includes('Friday')">F</li>
+            <li (click)="selectDay('Saturday')" [class.selected]="selectedWeekdays.includes('Saturday')">S</li>
+            <li (click)="selectDay('Sunday')" [class.selected]="selectedWeekdays.includes('Sunday')">S</li>
+          </ul>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>Schedule</ion-label>
+        </ion-item>
+        <div class="startEnd">
+          <span (click)="openStartTimePicker()">START</span>
+          <span (click)="openEndTimePicker()">END</span>
+        </div>
+        <ion-item lines="none">
+          <ion-checkbox slot="start" [(ngModel)]="enableNotification"></ion-checkbox>
+          <ion-label>Enable Notification</ion-label>
+        </ion-item>
+        <ion-button expand="block" color="primary" (click)="createEvent()">Add</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <!-- Edit Event Modal -->
+<!-- Edit Modal -->
+<ion-modal #editModal>
+  <ng-template>
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Edit Event</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="dismissEditModal()">
+            <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-item lines="none">
+        <ion-label position="stacked">Enter Task Name</ion-label>
+        <ion-input placeholder="Enter Task Name" [(ngModel)]="editTaskName"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label position="stacked">Enter Description (Optional)</ion-label>
+        <ion-textarea placeholder="Enter Description" [(ngModel)]="editTaskDescription"></ion-textarea>
+      </ion-item>
+      <ion-item lines="none">
+        <ul class="week_days">
+          <li (click)="selectDayForEdit('Monday')" [class.selected]="editSelectedWeekdays.includes('Monday')">M</li>
+          <li (click)="selectDayForEdit('Tuesday')" [class.selected]="editSelectedWeekdays.includes('Tuesday')">T</li>
+          <li (click)="selectDayForEdit('Wednesday')" [class.selected]="editSelectedWeekdays.includes('Wednesday')">W</li>
+          <li (click)="selectDayForEdit('Thursday')" [class.selected]="editSelectedWeekdays.includes('Thursday')">T</li>
+          <li (click)="selectDayForEdit('Friday')" [class.selected]="editSelectedWeekdays.includes('Friday')">F</li>
+          <li (click)="selectDayForEdit('Saturday')" [class.selected]="editSelectedWeekdays.includes('Saturday')">S</li>
+          <li (click)="selectDayForEdit('Sunday')" [class.selected]="editSelectedWeekdays.includes('Sunday')">S</li>
+        </ul>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Schedule</ion-label>
+      </ion-item>
+      <div class="startEnd">
+        <span (click)="openStartTimePickerForEdit()">START</span>
+        <span (click)="openEndTimePickerForEdit()">END</span>
+      </div>
+      <ion-item lines="none">
+        <ion-checkbox slot="start" [(ngModel)]="editEnableNotification"></ion-checkbox>
+        <ion-label>Enable Notification</ion-label>
+      </ion-item>
+      <ion-button expand="block" color="primary" (click)="updateEvent()">Update</ion-button>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+  <!-- Time Picker Modals -->
+  <ion-modal [isOpen]="showStartTimePicker">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Select Start Time</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeStartTimePickerModal()">
+              <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding time-picker">
+        <div class="time-container">
+          <ion-item>
+            <ion-label position="stacked">Hour</ion-label>
+            <ion-input type="number" placeholder="00" [(ngModel)]="startTimeHour"
+                       (ionInput)="validateTimeInput($event, 'hour')" min="1" max="12"></ion-input>
+          </ion-item>
+          <span>:</span>
+          <ion-item>
+            <ion-label position="stacked">Minute</ion-label>
+            <ion-input type="number" placeholder="00" [(ngModel)]="startTimeMinute"
+                       (ionInput)="validateTimeInput($event, 'minute')" min="0" max="59"></ion-input>
+          </ion-item>
+        </div>
+        <div class="am-pm-toggle">
+          <span class="am-pm-button" [class.active]="startAmPm === 'AM'" (click)="setStartAmPm('AM')">AM</span>
+          <span class="am-pm-button" [class.active]="startAmPm === 'PM'" (click)="setStartAmPm('PM')">PM</span>
+        </div>
+        <div class="confirmation-buttons">
+          <button class="confirmation-button" (click)="setStartTime()">Set Time</button>
+          <button class="confirmation-button" (click)="closeStartTimePickerModal()">Cancel</button>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [isOpen]="showEndTimePicker">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Select End Time</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeEndTimePickerModal()">
+              <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding time-picker">
+        <div class="time-container">
+          <ion-item>
+            <ion-label position="stacked">Hour</ion-label>
+            <ion-input type="number" placeholder="00" [(ngModel)]="endTimeHour"
+                       (ionInput)="validateTimeInput($event, 'hour')" min="1" max="12"></ion-input>
+          </ion-item>
+          <span>:</span>
+          <ion-item>
+            <ion-label position="stacked">Minute</ion-label>
+            <ion-input type="number" placeholder="00" [(ngModel)]="endTimeMinute"
+                       (ionInput)="validateTimeInput($event, 'minute')" min="0" max="59"></ion-input>
+          </ion-item>
+        </div>
+        <div class="am-pm-toggle">
+          <span class="am-pm-button" [class.active]="endAmPm === 'AM'" (click)="setEndAmPm('AM')">AM</span>
+          <span class="am-pm-button" [class.active]="endAmPm === 'PM'" (click)="setEndAmPm('PM')">PM</span>
+        </div>
+        <div class="confirmation-buttons">
+          <button class="confirmation-button" (click)="setEndTime()">Set Time</button>
+          <button class="confirmation-button" (click)="closeEndTimePickerModal()">Cancel</button>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ concerns[0]?.fromStudent }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="chatbubbles-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list lines="none">
+    <ion-item *ngFor="let concern of concerns">
+      <ion-label>
+        <p style="color: #444444; font-weight: bold; margin-bottom: 2px;">{{ concern.subject }}</p> <!-- Display the subject -->
+        <p>{{ concern.message }}</p>
+        <p><small>{{ concern.createdAt | date }}</small></p>
+
+        <p style="color: #575757; font-weight: bold; display: flex; justify-content: space-between; margin-top: 5px;" *ngIf="concern.response">
+          <span>
+            <ion-icon name="return-down-forward-outline"></ion-icon> 
+            {{ concern.response }}
+          </span>
+          <span style="font-size: 10px; color: #575757; font-weight: bold;">
+            Responded • {{ concern.respondedAt | dateAgo }}
+          </span>
+        </p>
+
+      </ion-label>
+
+      <ion-buttons slot="end" *ngIf="!concern.response">
+        <ion-select
+          placeholder="Respond"
+          (ionChange)="submitResponse(concern.concernId, $event.detail.value)"
+          class="custom-select"
+          interface="popover"
+        >
+          <ion-select-option
+            *ngFor="let response of responses"
+            class="custom-option"
+          >
+            {{ response }}
+          </ion-select-option>
+        </ion-select>
+
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>

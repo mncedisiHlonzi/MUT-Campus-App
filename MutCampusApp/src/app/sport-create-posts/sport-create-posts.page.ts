@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-sport-create-posts',
@@ -13,7 +14,7 @@ export class SportCreatePostsPage implements OnInit {
 
   adminProfile: any = {};
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private toastController: ToastController) {}
 
   onFileSelected(event: any) {
     const file = event.target.files[0];
@@ -22,25 +23,38 @@ export class SportCreatePostsPage implements OnInit {
     }
   }
 
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000,
+      position: 'bottom'
+    });
+    await toast.present();
+  }
+
   onSubmit() {
-    if (!this.announcementText.trim() || !this.selectedFile || !this.targetAudience) {
-      alert('Please fill all the fields and select an image.');
+    if (!this.announcementText.trim() && !this.selectedFile) {
+      alert('Please provide either a text or an image.');
       return;
     }
 
     const formData = new FormData();
     formData.append('announcementText', this.announcementText);
     formData.append('targetAudience', this.targetAudience);
-    formData.append('image', this.selectedFile);
+    if (this.selectedFile) {
+      formData.append('image', this.selectedFile);
+    }
     formData.append('adminId', this.adminProfile.adminId); // Add adminId to form data
 
-    this.http.post('http://192.168.101.153:3000/upload', formData).subscribe(
+    this.http.post('http://172.16.21.22:3000/upload', formData).subscribe(
       response => {
         console.log('Post created!', response);
+        this.presentToast('Post successfully created!'); // Show toast
         this.resetForm();
       },
       error => {
         console.error('Error creating post:', error);
+        this.presentToast('Error creating post'); // Show error toast
       }
     );
   }
@@ -56,7 +70,7 @@ export class SportCreatePostsPage implements OnInit {
   }
 
   getAdminProfile(adminId: number) {
-    this.http.get(`http://192.168.101.153:3000/admin-profile/${adminId}`).subscribe(
+    this.http.get(`http://172.16.21.22:3000/admin-profile/${adminId}`).subscribe(
       (response: any) => {
         this.adminProfile = response;
       },
@@ -65,5 +79,4 @@ export class SportCreatePostsPage implements OnInit {
       }
     );
   }
-
 }
