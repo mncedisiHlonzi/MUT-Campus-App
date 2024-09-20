@@ -92,11 +92,10 @@ ion-modal {
   --height: auto;
 }*/
 
-
-
-
-
-
+.get-directions-button {
+  --background: #4b0082; /* Indigo color */
+  --color: #fff; /* Set text color to white for better contrast */
+}
 
 
 
@@ -159,4 +158,35 @@ ion-modal {
       margin-bottom: 2vh;
   }
   }
+}
+
+#list-card {
+  width: 100%;
+}
+
+.image-gallery {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-gallery ion-image {
+  width: 18%; /* Adjust width to fit 5 images */
+  height: auto;
+  cursor: pointer;
+}
+
+.full-screen-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+ion-slides {
+  height: 100%;
+}
+
+ion-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
