@@ -1,57 +1,99 @@
-<ion-header style="--background: indigo;" [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button default-href="#"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Faculties</ion-title>
-    <ion-buttons slot="end">
-      <ion-button> <ion-icon name="layers-sharp"></ion-icon> </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="faculties-content">
+  <div class="faculties-grid">
+    <!-- Faculty of Engineering -->
+    <ion-card class="faculty-card">
+      <img src="assets/images/engineering.png" alt="Faculty of Engineering">
+      <ion-card-header>
+        <ion-card-title>FACULTY OF ENGINEERING</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ul>
+          <li>Diploma in Building</li>
+          <li>Diploma in Chemical Engineering</li>
+          <li>Diploma in Civil Engineering</li>
+          <!-- Additional information revealed on "Show more" -->
+          <li *ngIf="showMoreState['engineering']">Diploma in Electrical Engineering</li>
+          <li *ngIf="showMoreState['engineering']">Diploma in Mechanical Engineering</li>
+          <li *ngIf="showMoreState['engineering']">Diploma in Surveying</li>
+          <li *ngIf="showMoreState['engineering']">Diploma in Construction Management & Quantity Surveying</li>
+          <li *ngIf="showMoreState['engineering']">Advanced Diploma in Chemical Engineering</li>
+          <li *ngIf="showMoreState['engineering']">Advanced Diploma in Mechanical Engineering </li>
+        </ul>
+        <a href="#" class="show-more" (click)="toggleShowMore($event, 'engineering')">
+          {{ showMoreState['engineering'] ? 'Show less' : 'Show more' }}
+        </a>
+        
+      </ion-card-content>
+      <ion-button fill="outline" expand="block" [routerLink]="['/engineering']">READ MORE</ion-button>
 
-<ion-content [fullscreen]="true">
+    </ion-card>
 
-  <ion-card class="custom-card">
-    <ion-card-header>
-      <ion-card-title style="color: transparent;">MUT Faculties</ion-card-title>
-    </ion-card-header>
-    <ion-card-content style="color: transparent;">
-      Explore our diverse faculties including Engineering, Management Science, and Natural Science.
-    </ion-card-content>
-    <ion-button id="card-button" shape="round">
-      Faculties Information
-      <ion-icon slot="end" name="checkmark-done-sharp"></ion-icon>
-    </ion-button>
-  </ion-card>
+    <!-- Faculty of Management Sciences -->
+    <ion-card class="faculty-card">
+      <img src="assets/images/management.png" alt="Faculty of Management Sciences">
+      <ion-card-header>
+        <ion-card-title>FACULTY OF MANAGEMENT SCIENCES</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ul>
+          <li>Diploma in Accounting</li>
+          <li>Diploma in Cost & Management Accounting</li>
+          <li>Diploma in Office Management & Technology</li>
+          <!-- Additional information revealed on "Show more" -->
+          <li *ngIf="showMoreState['management']">Diploma in Public Finance and Accounting</li>
+          <li *ngIf="showMoreState['management']">Diploma in Local Government and Finance</li>
+          <li *ngIf="showMoreState['management']">Diploma in Public Management</li>
+          <li *ngIf="showMoreState['management']">Diploma in Marketing</li>
+          <li *ngIf="showMoreState['management']">Diploma in Human Resource Management</li>
+          <li *ngIf="showMoreState['management']">Advanced Diploma in Cost and Management Accounting</li>
+          <li *ngIf="showMoreState['management']">Advanced Diploma in Accountingt</li>
+          <li *ngIf="showMoreState['management']">Advanced Diploma in Office Management and Technology</li>
+          <li *ngIf="showMoreState['management']">Advanced Diploma in Human Resource Management</li>
+          <li *ngIf="showMoreState['management']">Advanced Diploma in Marketing</li>
+          <li *ngIf="showMoreState['management']">Advanced Diploma in Public Management</li>
+          <li *ngIf="showMoreState['management']">Postgraduate Diploma in Marketing</li>
+          <li *ngIf="showMoreState['management']">Postgraduate Diploma in Human Resources Management</li>
+          <li *ngIf="showMoreState['management']">Postgraduate Diploma in Public Management</li>
+        </ul>
+        <a href="#" class="show-more" (click)="toggleShowMore($event, 'management')">
+          {{ showMoreState['management'] ? 'Show less' : 'Show more' }}
+        </a>
+      </ion-card-content>
+      <ion-button fill="outline" expand="block" [routerLink]="['/management']">READ MORE</ion-button>
+    </ion-card>
 
+    <!-- Faculty of Natural Sciences -->
+    <ion-card class="faculty-card">
+      <img src="assets/images/natural.jpeg" alt="Faculty of Natural Sciences">
+      <ion-card-header>
+        <ion-card-title>FACULTY OF NATURAL SCIENCES</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ul>
+          <li>Diploma in Agriculture</li>
+          <li>Diploma in Analytical Chemistry</li>
+          <li>Diploma in Community Extension</li>
+          <!-- Additional information revealed on "Show more" -->
+          <li *ngIf="showMoreState['naturalSciences']">Diploma in Information Technology</li>
+          <li *ngIf="showMoreState['naturalSciences']">Diploma in Nature Conservation</li>
+          <li *ngIf="showMoreState['naturalSciences']">Bachelor of Science in Environmental Health</li>
+          <li *ngIf="showMoreState['naturalSciences']">Bachelor of Health Sciences in Medical Laboratory Science</li>
+          <li *ngIf="showMoreState['naturalSciences']">Bachelor of Applied Science in Nature Conservation</li>
+          <li *ngIf="showMoreState['naturalSciences']">Advanced Diploma in Agriculture in Crop Production</li>
+          <li *ngIf="showMoreState['naturalSciences']">Advanced Diploma in Agriculture in Animal Production</li>
+          <li *ngIf="showMoreState['naturalSciences']">Advanced Diploma in Analytical Chemistry</li>
+          <li *ngIf="showMoreState['naturalSciences']">Advanced Diploma in Agriculture Extension and Community Development</li>
+          <li *ngIf="showMoreState['naturalSciences']">Advanced Diploma in ICT in Applications Development</li>
+          <li *ngIf="showMoreState['naturalSciences']">Advanced Diploma in Nature Conservation</li>
+          <li *ngIf="showMoreState['naturalSciences']">Post graduate Diploma in Nature Conservation</li>
+          <li *ngIf="showMoreState['naturalSciences']">Master of Nature Conservation</li>
+        </ul>
+        <a href="#" class="show-more" (click)="toggleShowMore($event, 'naturalSciences')">
+          {{ showMoreState['naturalSciences'] ? 'Show less' : 'Show more' }}
+        </a>
+      </ion-card-content>
+      <ion-button fill="outline" expand="block" [routerLink]="['/natural']">READ MORE</ion-button>
+    </ion-card>
 
-  <ion-card id="grid_card">
-    <ion-card-title>Explore Faculties <ion-icon class="dep_head" name="pulse-sharp"></ion-icon></ion-card-title>
-  
-    
-      <ion-grid>
-        <ion-row>
-          <ion-col routerLink="/engineering" class="Engineering">
-            Faculty of Engineering
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-grid>
-        <ion-row>
-          <ion-col routerLink="/management" class="Management">
-            Faculty of Management Sciences
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-grid>
-        <ion-row>
-          <ion-col routerLink="/natural" class="Natural">
-            Faculty of Natural Sciences
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    
-  </ion-card>
-  
+  </div>
 </ion-content>
