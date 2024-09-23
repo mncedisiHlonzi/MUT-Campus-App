@@ -95,3 +95,20 @@ ion-header {
     color: var(--detail-icon-color);
     font-weight: var(--detail-icon-font-weight);
   }
+
+  .download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: indigo; /* Blue background color */
+    color: #fff; /* White text color */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .download-button:hover {
+    background-color: #664380; /* Darker blue on hover */
+  }
+  
