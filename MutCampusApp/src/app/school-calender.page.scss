@@ -1,0 +1,22 @@
+.calendar-grid {
+    border: 1px solid #000;
+  }
+  
+  .calendar-row {
+    border-bottom: 1px solid #000;
+  }
+  
+  .calendar-cell {
+    border-right: 1px solid #000;
+    padding: 10px;
+  }
+  
+  .header-row {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .header-row .calendar-cell {
+    text-align: center;
+  }
+  

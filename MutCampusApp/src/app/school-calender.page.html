@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>School Calendar 2024</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Condensed Header for Scroll Effect -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">School Calendar 2024</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Main Content Section -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Academic Terms for 2024</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <!-- University Opening Dates -->
+        <ion-item>
+          <ion-label>
+            <h2><strong>University Opens</strong></h2>
+            <p>Support Staff: Monday, 08 January 2024</p>
+            <p>Academic Staff: Monday, 15 January 2024</p>
+          </ion-label>
+        </ion-item>
+
+        <!-- Semester 1 -->
+        <ion-item>
+          <ion-label>
+            <h2><strong>Semester 1</strong></h2>
+            <p><strong>First Term:</strong> Monday, 08 January 2024 - Thursday, 28 March 2024</p>
+            <p><strong>Second Term:</strong> Monday, 08 April 2024 - Friday, 21 June 2024</p>
+          </ion-label>
+        </ion-item>
+
+        <!-- Semester 2 -->
+        <ion-item>
+          <ion-label>
+            <h2><strong>Semester 2</strong></h2>
+            <p><strong>Third Term:</strong> Monday, 15 July 2024 - Friday, 20 September 2024</p>
+            <p><strong>Fourth Term:</strong> Wednesday, 30 September 2024 - Friday, 13 December 2024</p>
+          </ion-label>
+        </ion-item>
+
+        <!-- Census and Graduation Dates -->
+        <ion-item>
+          <ion-label>
+            <h2><strong>Important Dates</strong></h2>
+            <p><strong>Census Dates:</strong></p>
+            <p>Annual: 10 June 2024</p>
+            <p>Semester 1: 29 March 2024</p>
+            <p>Semester 2: 13 September 2024</p>
+
+            <p><strong>Graduation Ceremonies:</strong></p>
+            <p>Management Sciences: 16-17 April 2024</p>
+            <p>Engineering: 18 April 2024</p>
+            <p>Natural Sciences: 19 April 2024</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Button to Download PDF --
+  <ion-footer>
+    <ion-toolbar>
+      <ion-button expand="full" color="primary" (click)="downloadPDF()">
+        Download PDF
+      </ion-button>
+    </ion-toolbar>
+  </ion-footer>-->
+</ion-content>
