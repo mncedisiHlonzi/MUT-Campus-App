@@ -5,49 +5,37 @@
     </ion-buttons>
     <ion-title>Sports</ion-title>
     <ion-buttons slot="end">
-      <ion-button> <ion-icon name="flag-outline"></ion-icon> </ion-button>
+      <ion-button>
+        <ion-icon name="flag-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card id="card">
-    <img src="../../assets/images/sports.jpg" />
-      <ion-grid>
-        <ion-row>
-          <ion-col routerLink="/posts">
-            <ion-icon class="ico" name="football-outline"></ion-icon>
-            <div class="Title">Football</div>
-          </ion-col>
-          <ion-col routerLink="/timetable">
-            <ion-icon class="ico" name="tennisball-outline"></ion-icon>
-            <div class="Title">Tennis</div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-grid>
-        <ion-row>
-          <ion-col routerLink="/sports">
-            <ion-icon class="ico" name="baseball-outline"></ion-icon>
-            <div class="Title">Baseball</div>
-          </ion-col>
-          <ion-col routerLink="/transport">
-            <ion-icon class="ico" name="basketball-outline"></ion-icon>
-            <div class="Title">Basketball</div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-grid>
-        <ion-row>
-          <ion-col routerLink="/sports">
-            <ion-icon class="ico" name="barbell-outline"></ion-icon>
-            <div class="Title">Body Building</div>
-          </ion-col>
-          <ion-col routerLink="/transport">
-            <ion-icon class="ico" name="golf-outline"></ion-icon>
-            <div class="Title">Golf</div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-  </ion-card>
+  <ion-grid>
+    <!-- Loop through each sport -->
+    <ion-row *ngFor="let sport of sportsList">
+      <ion-col size="12">
+        <ion-card class="sport-card">
+          <ion-card-content>
+            <!-- Image section -->
+            <div class="sport-image-container">
+              <img [src]="sport.image" alt="{{ sport.name }} Image" class="sport-image"/>
+            </div>
+            <!-- Icon and Name -->
+            <div class="sport-icon-name">
+              <ion-icon name="sports-outline"></ion-icon>
+              <h2>{{ sport.name }}</h2>
+            </div>
+            <!-- Coach and Venue Information -->
+            <div class="sport-info">
+              <p><strong>Coach Name:</strong> {{ sport.coach }}</p>
+              <p><strong>Training Venue:</strong> {{ sport.venue }}</p>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
