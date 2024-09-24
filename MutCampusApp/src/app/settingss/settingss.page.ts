@@ -25,6 +25,11 @@ export class SettingssPage implements OnInit {
 
   ngOnInit() {
     // Check saved theme preference
+    const storedUser = localStorage.getItem('student');
+    if (storedUser) {
+      this.user = JSON.parse(storedUser);
+    }
+
     this.storage.get('darkMode').then((val) => {
       this.darkMode = val || false;
       this.applyDarkMode();
