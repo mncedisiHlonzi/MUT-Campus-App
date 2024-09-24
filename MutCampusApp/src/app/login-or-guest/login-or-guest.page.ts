@@ -24,11 +24,14 @@ export class LoginOrGuestPage implements OnInit {
   }
 
   login() {
-    this.http.post('http://172.16.21.22:3000/login', { email: this.email, password: this.password }).subscribe(
+    this.http.post('http://10.3.0.237:3000/login', { email: this.email, password: this.password }).subscribe(
       (response: any) => {
         console.log('Student login successful');
         localStorage.setItem('token', response.token);
         localStorage.setItem('student', JSON.stringify(response.student));
+        
+        this.sendOTP(this.email);
+
         this.navCtrl.navigateForward('/tabs');
         this.dismissModal();
       },
@@ -39,9 +42,21 @@ export class LoginOrGuestPage implements OnInit {
     );
   }
 
+  sendOTP(email: string) {
+    this.http.post('http://10.3.0.237:3000/send-otp', { email }).subscribe(
+      (response: any) => {
+        console.log('OTP sent to email:', email);
+      },
+      (error) => {
+        console.error('Error sending OTP:', error);
+        alert('Error sending OTP: ' + (error.error || 'Unknown error'));
+      }
+    );
+  }
+
   adminLogin() {
     // Assuming a separate endpoint for admin login
-    this.http.post('http://172.16.21.22:3000/admin-login', { password: this.password }).subscribe(
+    this.http.post('http://10.3.0.237:3000/admin-login', { password: this.password }).subscribe(
       (response: any) => {
         console.log('Admin login successful');
         // Determine where to navigate based on adminId
@@ -76,7 +91,7 @@ export class LoginOrGuestPage implements OnInit {
       password: 'guestpassword'  // Hardcoded guest password
     };
   
-    this.http.post('http://172.16.21.22:3000/login', guestCredentials).subscribe(
+    this.http.post('http://10.3.0.237:3000/login', guestCredentials).subscribe(
       (response: any) => {
         console.log('Guest login successful');
         localStorage.setItem('token', response.token);
