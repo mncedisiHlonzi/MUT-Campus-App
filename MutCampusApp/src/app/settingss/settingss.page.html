@@ -16,4 +16,74 @@
       <ion-title size="large">settingss</ion-title>
     </ion-toolbar>
   </ion-header>
+
+    <!-- Account Information (View-only) -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Account Information</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label>Email</ion-label>
+            <ion-text>{{ user.email }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label>Username</ion-label>
+            <ion-text>{{ user.username }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label>Phone Number</ion-label>
+            <ion-text>{{ user.phoneNumber }}</ion-text>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+  <!-- Light/Dark Mode Toggle -->
+  <ion-item>
+    <ion-label>Dark Mode</ion-label>
+    <ion-toggle [(ngModel)]="darkMode" (ionChange)="toggleDarkMode()"></ion-toggle>
+  </ion-item>
+
+  <!-- Notification Settings -->
+  <ion-item>
+    <ion-label>Enable Notifications</ion-label>
+    <ion-toggle [(ngModel)]="notificationsEnabled"></ion-toggle>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label>Email Notifications</ion-label>
+    <ion-toggle [(ngModel)]="emailNotifications"></ion-toggle>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label>Push Notifications</ion-label>
+    <ion-toggle [(ngModel)]="pushNotifications"></ion-toggle>
+  </ion-item>
+
+  <!-- Privacy Settings -->
+  <ion-item>
+    <ion-label>Location Sharing</ion-label>
+    <ion-toggle [(ngModel)]="locationSharing"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Allow Data Collection</ion-label>
+    <ion-toggle [(ngModel)]="dataCollection"></ion-toggle>
+  </ion-item>
+
+  <!-- About Section -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>About</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      This app was developed to improve the user experience at Mangosuthu University of Technology. 
+      It provides campus navigation, maps, and much more.
+      <strong>POWERED BY Suicuide Squad</strong>
+    </ion-card-content>
+  </ion-card>
+
+
 </ion-content>

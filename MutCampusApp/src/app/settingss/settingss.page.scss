@@ -10,3 +10,28 @@ ion-header {
   ion-content {
     --ion-background-color: #ffffff;
   }
+
+/* Customize buttons with indigo color */
+ion-button {
+  --background: indigo;
+  --background-activated: #4b0082; /* Darker indigo for activated state */
+  --background-focused: #4b0082; /* Darker indigo for focused state */
+  --background-hover: #4b0082; /* Darker indigo for hover state */
+  color: white; /* White text color on buttons */
+}
+
+/* Style ion-toggle */
+ion-toggle {
+  --background: indigo;
+}
+
+/* Card Title */
+ion-card-title {
+  color: #000; /* Black text for card titles */
+  font-weight: bold;
+}
+
+/* Other text inside cards */
+ion-card-content {
+  color: #333; /* Slightly darker text for readability */
+}
