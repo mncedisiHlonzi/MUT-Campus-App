@@ -2,6 +2,8 @@ import { Network } from '@capacitor/network';
 import { BehaviorSubject } from 'rxjs';
 
 class NetworkService {
+  private networkStatus: BehaviorSubject<boolean>; // Make this a private property
+
   constructor() {
     this.networkStatus = new BehaviorSubject(true); // true means online
     this.initializeNetworkEvents();
@@ -21,4 +23,5 @@ class NetworkService {
   }
 }
 
-export default new NetworkService();
+const networkService = new NetworkService();
+export default networkService;
