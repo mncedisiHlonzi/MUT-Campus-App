@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: indigo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  width: 400px;
+  padding: 20px;
+  border: 2px solid indigo;
+  border-radius: 8px;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  color: indigo;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.otp-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.otp-inputs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.otp-input {
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  text-align: center;
+  border: 2px solid indigo;
+  border-radius: 4px;
+  color: indigo;
+}
+
+.btn {
+  background-color: indigo;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: darkslateblue;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Loading and Success */
+.loading-screen, .success-message {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 10;
+  display: flex;
+}
+
+.spinner {
+  border: 5px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 5px solid indigo;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.success-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .otp-input {
+      width: 30px;
+      height: 30px;
+      font-size: 18px;
+  }
+
+  .btn {
+      font-size: 14px;
+  }
+
+  .spinner {
+      width: 40px;
+      height: 40px;
+  }
+}
