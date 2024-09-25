@@ -54,3 +54,61 @@ ion-header {
     --placeholder-color: #000;
     --placeholder-font-weight: bold;
   }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .neighborhood-discovery {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+  
+  .neighborhood-discovery a {
+    color: var(--ion-color-primary); /* Use Ionic's primary color */
+    text-decoration: none;
+  }
+  
+  .neighborhood-discovery .info {
+    color: var(--ion-color-medium);
+    font-size: 0.9em;
+    margin-top: 0.3em;
+  }
+  
+  .neighborhood-discovery .places-panel {
+    box-shadow: 0 0 10px rgb(60 64 67 / 28%);
+  }
+  
+  .neighborhood-discovery .show-more-button {
+    display: none; /* Keep it hidden until needed */
+    margin: 1em auto; /* Center the button */
+  }
+  
+  .neighborhood-discovery .place-result {
+    padding: 0.8em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    transition: background-color 0.3s;
+  }
+  
+  .neighborhood-discovery .place-result:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  @media only screen and (max-width: 640px) {
+    .neighborhood-discovery .map {
+      bottom: 50%;
+      left: 0;
+    }
+  }
+  
+  /* --------------------------- PHOTO MODAL ---------------------------- */
+  .neighborhood-discovery .photo-modal {
+    background: rgba(0, 0, 0, 0.8);
+    display: none; /* Control visibility with Angular/Ionic */
+  }
+  

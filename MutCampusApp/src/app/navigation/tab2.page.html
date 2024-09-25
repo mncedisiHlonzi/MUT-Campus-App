@@ -9,134 +9,70 @@
 
 <ion-content [fullscreen]="true">
 
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.334883388362!2d30.910702475142774!3d-29.969804427818424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef7acb92bb39671%3A0x5fff50d20ffe53f0!2sMangosuthu%20University%20of%20Technology!5e0!3m2!1sen!2sza!4v1717034851832!5m2!1sen!2sza" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-  <ion-modal
-    [isOpen]="true"
-    [initialBreakpoint]="0.25"
-    [breakpoints]="[0.25, 0.5, 0.75]"
-    handleBehavior="cycle"
-    style="--border-radius: 17px;"
-  >
-    <ng-template>
-      <ion-header>
-      </ion-header>
-      <ion-content class="ion-padding">
-
-        <ion-searchbar placeholder="Where to?"></ion-searchbar>
-
-        <ion-list lines="none" id="list">
-          <ion-item class="custom-detail-icon" detail="true">
-            <ion-icon name="timer-outline"></ion-icon>
-            <ion-label>
-              <h3>Student Center</h3>
-              <p>Library</p>
-            </ion-label>
-          </ion-item>
-          <ion-item class="custom-detail-icon" detail="true">
-            <ion-icon name="timer-outline"></ion-icon>
-            <ion-label>
-              <h3>D1 Lab</h3>
-              <p>Step 5</p>
-            </ion-label>
-          </ion-item>
-          <ion-item class="custom-detail-icon" detail="true">
-            <ion-icon name="timer-outline"></ion-icon>
-            <ion-label>
-              <h3>Semme Hall</h3>
-              <p>Resident H</p>
-            </ion-label>
-          </ion-item>
-          <ion-item class="custom-detail-icon" detail="true">
-            <ion-icon name="timer-outline"></ion-icon>
-            <ion-label>
-              <h3>Main Gate</h3>
-              <p>Clinic</p>
-            </ion-label>
-          </ion-item>
-          <ion-item class="custom-detail-icon" detail="true">
-            <ion-icon name="timer-outline"></ion-icon>
-            <ion-label>
-              <h3>SRC Office</h3>
-              <p>Warden's Office</p>
-            </ion-label>
-          </ion-item>
-          <ion-item class="custom-detail-icon" detail="true">
-            <ion-icon name="timer-outline"></ion-icon>
-            <ion-label>
-              <h3>Main Gate</h3>
-              <p>North Campus</p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
+  <ion-content>
+    <div class="neighborhood-discovery">
+      <ion-searchbar 
+        placeholder="Search nearby places" 
+        class="place-search-input"
+        (ionInput)="searchPlaces($event)"></ion-searchbar>
         
-      </ion-content>
-    </ng-template>
-  </ion-modal>
+      <div class="places-panel panel no-scroll">
+        <div class="results">
+          <ul class="place-results-list"></ul>
+        </div>
+        <ion-button expand="full" class="show-more-button sticky">
+          <span>Show More</span>
+          <ion-icon slot="end" name="chevron-down"></ion-icon>
+        </ion-button>
+      </div>
 
+      <div class="details-panel panel"></div>
+      <div class="map"></div>
+      
+      <div class="photo-modal">
+        <img alt="place photo" />
+        <div>
+          <ion-button class="back-button">
+            <ion-icon name="arrow-back"></ion-icon>
+          </ion-button>
+          <div class="photo-text">
+            <div class="photo-place"></div>
+            <div class="photo-attrs">Photo by <span></span></div>
+          </div>
+        </div>
+      </div>
 
+      <svg class="marker-pin" xmlns="http://www.w3.org/2000/svg" width="26" height="38" fill="none">
+        <path d="M13 0C5.817 0 0 5.93 0 13.267c0 7.862 5.59 10.81 9.555 17.624C12.09 35.248 11.342 38 13 38c1.723 0 .975-2.817 3.445-7.043C20.085 24.503 26 21.162 26 13.267 26 5.93 20.183 0 13 0Z"/>
+      </svg>
+    </div>
+  </ion-content>
 
+  <script>
+    const CONFIGURATION = {
+      "capabilities": {"search": true, "distances": true, "directions": true, "contacts": true, "atmospheres": true, "thumbnails": true},
+      "pois": [
+        {"placeId": "ChIJnZ4mUL-s9x4R6lxgyUT87TA"},
+        {"placeId": "ChIJ0XBMUbas9x4RIDdg1t3QfcU"},
+        {"placeId": "ChIJa5jG-Zet9x4Rtbu-OX5sJUA"},
+        {"placeId": "ChIJv3S_17is9x4RYA44qjX7ZKM"},
+        {"placeId": "ChIJLwew2bis9x4RHi59MnVoH40"},
+        {"placeId": "ChIJlzz2pL6s9x4RpiRQzRd8e0Q"},
+        {"placeId": "ChIJQ9-J876s9x4R45kOYgbywKM"},
+        {"placeId": "ChIJGxjo4-qt9x4RMHYFH1Kb_Cw"}
+      ],
+      "centerMarker": {"icon": "circle"},
+      "mapRadius": 500,
+      "mapOptions": {"center": {"lat": -29.9698091, "lng": 30.91327739999999}, "fullscreenControl": true, "mapTypeControl": true, "streetViewControl": false, "zoom": 16, "zoomControl": true, "maxZoom": 20, "mapId": ""},
+      "mapsApiKey": "YOUR_API_KEY_HERE"
+    };
 
-  <ion-modal
-    trigger="search"
-    [initialBreakpoint]="0.25"
-    [breakpoints]="[0.25, 0.5, 0.75]"
-    handleBehavior="cycle"
-    style="--border-radius: 17px;"
-    >
-    <ng-template>
-      <ion-header>
-      </ion-header>
-      <ion-content class="ion-padding">
+    function initMap() {
+      new NeighborhoodDiscovery(CONFIGURATION);
+    }
+  </script>
 
-        <ion-searchbar placeholder="Where to?"></ion-searchbar>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initMap&libraries=places,geometry" async defer></script>
 
-        <ion-list lines="none" id="list">
-          <ion-item class="custom-detail-icon" detail="true">
-            <ion-icon name="timer-outline"></ion-icon>
-            <ion-label>
-              <h3>Student Center</h3>
-              <p>Library</p>
-            </ion-label>
-          </ion-item>
-          <ion-item class="custom-detail-icon" detail="true">
-            <ion-icon name="timer-outline"></ion-icon>
-            <ion-label>
-              <h3>D1 Lab</h3>
-              <p>Step 5</p>
-            </ion-label>
-          </ion-item>
-          <ion-item class="custom-detail-icon" detail="true">
-            <ion-icon name="timer-outline"></ion-icon>
-            <ion-label>
-              <h3>Semme Hall</h3>
-              <p>Resident H</p>
-            </ion-label>
-          </ion-item>
-          <ion-item class="custom-detail-icon" detail="true">
-            <ion-icon name="timer-outline"></ion-icon>
-            <ion-label>
-              <h3>Main Gate</h3>
-              <p>Clinic</p>
-            </ion-label>
-          </ion-item>
-          <ion-item class="custom-detail-icon" detail="true">
-            <ion-icon name="timer-outline"></ion-icon>
-            <ion-label>
-              <h3>SRC Office</h3>
-              <p>Warden's Office</p>
-            </ion-label>
-          </ion-item>
-          <ion-item class="custom-detail-icon" detail="true">
-            <ion-icon name="timer-outline"></ion-icon>
-            <ion-label>
-              <h3>Main Gate</h3>
-              <p>North Campus</p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
-        
-      </ion-content>
-    </ng-template>
-  </ion-modal>
+  
 </ion-content>
